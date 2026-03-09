@@ -3,6 +3,8 @@ sidebar_label: 'Virtual Workshops'
 title: 'Virtual Workshops'
 ---
 
+import Link from '@docusaurus/Link';
+
 # Virtual Workshops
 
 ## About the Training
@@ -38,3 +40,5 @@ Professional development workshops and presentations are available on the follow
 * The number of participants  
 * The topics you would like covered in the workshop or presentation  
 * Any add-ons you would like to include, such as participation certificates or print, digital fillable, or photocopiable copies of our resources.
+
+<Link className="button button--primary button--lg" to="https://tally.so/r/mDdVaR">Request a Workshop</Link>
