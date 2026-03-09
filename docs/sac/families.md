@@ -1,0 +1,41 @@
+---
+sidebar_label: 'Families'
+title: 'Families'
+---
+
+import Link from '@docusaurus/Link';
+
+# Families
+
+## Do you think your child has school attendance challenges?
+
+Try to understand their warning signs, symptoms, and barriers to education and learning.
+
+*  Warning Signs Checklist
+*  Barriers to Education Checklist
+
+### Warning Signs Checklist
+
+Use this interactive checklist to identify early warning signs that your child may be experiencing school attendance challenges.
+
+<Link className="button button--primary button--lg" to="pathname:///checklists/warning-signs-checklist.html" target="_blank">Open Checklist</Link>
+
+### Barriers to Education Checklist
+
+Use this interactive checklist to identify potential barriers to your child's education and learning.
+
+<Link className="button button--primary button--lg" to="pathname:///checklists/barriers-to-education-checklist.html" target="_blank">Open Checklist</Link>
+
+### Student Experiences of School Checklist
+
+Use this interactive checklist to understand a student's lived experiences of school.
+
+<Link className="button button--primary button--lg" to="pathname:///checklists/student-experiences-of-school-checklist.html" target="_blank">Open Checklist</Link>
+
+## Next steps
+
+* **Get educated**: resources – [Tier 1 (wellness workbooks and booklets)](./resources-training/tier-1.md), [Tier 2 and 3 (early intervention and targeted support): guidebook, student workbook, and handbook](./resources-training/tier-2-3.md)  
+* **Take the [online courses](./resources-training/online-courses.md)** (YWAP and SAC: Tiers 1 to 3 support)  
+* **Become your child’s Advocate**: Go to your child’s school, make an appointment with the principal, and ask for an Education Support Team.   
+* **Provide documentation**: Psychological-Educational Assessment, warning signs and barriers checklists  
+* **Ask for accommodations and an action plan**
