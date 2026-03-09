@@ -4,8 +4,8 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Support Pathways',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Support Pathways for Families and Schools',
+    imgSrc: require('@site/static/img/Study-scaled-800x533.jpg').default,
     description: (
       <>
         Provides practical guidance to help families and educators recognize warning signs, understand barriers to education, and take coordinated steps to support students.
@@ -14,7 +14,7 @@ const FeatureList = [
   },
   {
     title: 'National Survey and Research Evidence',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    imgSrc: require('@site/static/img/Story-scaled.jpg').default,
     description: (
       <>
         Presents findings from YMHC’s national survey and research to increase awareness of school attendance challenges and inform better policies and practices.
@@ -22,8 +22,8 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Resources, Training, and Tools',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Resources, Training, and Educational Tools',
+    imgSrc: require('@site/static/img/online-course-1.png').default,
     description: (
       <>
         Offers tiered resources, workbooks, workshops, and online courses that help schools and communities implement practical strategies to support student well-being and attendance.
@@ -32,11 +32,11 @@ const FeatureList = [
   },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ imgSrc, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img src={imgSrc} className={styles.featureImage} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
@@ -54,6 +54,17 @@ export default function HomepageFeatures() {
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
+        </div>
+        <div className="row" style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+          <div className="col col--12 text--center">
+            <a href="https://ymhc.ngo/conference" target="_blank" rel="noopener noreferrer">
+              <img 
+                src={require('@site/static/img/Conference-Event-Cover-16x9-v2.jpg').default} 
+                alt="YMHC Conference Event" 
+                className={styles.fullWidthImage}
+              />
+            </a>
+          </div>
         </div>
       </div>
     </section>

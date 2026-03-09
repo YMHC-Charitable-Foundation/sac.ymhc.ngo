@@ -34,5 +34,3 @@ Representing the experiences of over 519 families with youth aged 10 years old a
 Given the lack of data nationwide and conclusive data internationally, we hope this report will provide valuable insights that can be used by researchers, policymakers, and the many organizations and schools who access the resources, information, research, and services of Youth Mental Health Canada to better meet the needs of young people everywhere.
 
 Our hope is that youth will hear us loud and clear: that their education matters, that their lives are valuable, and that they are never alone. Our hope is also that all people who care about young people will examine the effects of exclusion that have increased suicide risk factors and resulted in chronic absenteeism at school and start to explore the protective factors and individualized needs-based learning models that we can create to better support students.
-
-Use the images developed by Rita in the website.
