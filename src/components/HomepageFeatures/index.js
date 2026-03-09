@@ -4,38 +4,35 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Support Pathways',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Provides practical guidance to help families and educators recognize warning signs, understand barriers to education, and take coordinated steps to support students.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'National Survey and Research Evidence',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Presents findings from YMHC’s national survey and research to increase awareness of school attendance challenges and inform better policies and practices.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Resources, Training, and Tools',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Offers tiered resources, workbooks, workshops, and online courses that help schools and communities implement practical strategies to support student well-being and attendance.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

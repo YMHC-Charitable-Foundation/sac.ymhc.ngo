@@ -4,14 +4,14 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'School Attendance Challenges',
+  tagline: 'Youth Mental Health Canada',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -27,8 +27,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'Youth Mental Health Canada', // Usually your GitHub org/user name.
+  projectName: 'sac.ymhc.ngo', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -83,22 +83,28 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'School Attendance Challenges',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'YMHC Site Logo',
+          src: 'img/logo.png',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'sacSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'SAC',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            type: 'docSidebar',
+            sidebarId: 'surveySidebar',
+            position: 'left',
+            label: 'Survey',
+          },
+          { to: '/stories', label: 'Stories', position: 'left' },
+          {
+            href: 'https://ymhc.ngo/',
+            label: 'ymhc.ngo',
             position: 'right',
           },
         ],
@@ -110,43 +116,51 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'SAC',
+                to: '/docs/sac/shared-commitment',
+              },
+              {
+                label: 'Survey',
+                to: '/docs/survey/introduction',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Youth Mental Health Canada',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'YMHC home',
+                href: 'https://ymhc.ngo/',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Follow us',
+                href: 'https://linktr.ee/ymhc',
               },
             ],
           },
           {
-            title: 'More',
+            title: 'Policies & Contact',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Privacy policy',
+                href: 'https://ymhc.ngo/policies/privacy-policy',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Terms of service',
+                href: 'https://ymhc.ngo/policies/terms-of-service',
+              },
+              {
+                label: 'Contact information',
+                href: 'https://ymhc.ngo/policies/contact-information',
+              },
+              {
+                label: 'Land Acknowledgement and Commitment',
+                href: 'https://ymhc.ngo/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Youth Mental Health Canada.`,
       },
       prism: {
         theme: prismThemes.github,
