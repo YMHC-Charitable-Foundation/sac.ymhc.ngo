@@ -18,3 +18,5 @@ Educational research consistently shows that when feelings become too intense or
 This means that improving student well-being is not separate from education; it is a prerequisite for effective learning.
 
 Student well-being is not separate from education; it is a foundational condition for learning, engagement, and achievement. In Canada, growing concerns about youth mental health and school attendance highlight the need for education systems that prioritize mental wellness alongside academic instruction. When schools, families, and communities work together to support student well-being, young people are far more able to access, manage, and succeed in their education
+
+![](/img/sac/student-wellbeing.png)

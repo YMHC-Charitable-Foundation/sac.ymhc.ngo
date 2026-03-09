@@ -8,17 +8,17 @@ const sidebars = {
       label: 'Shared Commitment to Change',
       link: {type: 'doc', id: 'sac/shared-commitment'},
       items: [
+        'sac/shared-commitment/definition-chronic-absenteeism',
         'sac/shared-commitment/what-do-we-know',
         'sac/shared-commitment/language-use',
         'sac/shared-commitment/ymhc-asap-model',
-        'sac/shared-commitment/student-lived-experience',
-        'sac/shared-commitment/research'
+        'sac/shared-commitment/multi-tiered-system-of-support',
+        'sac/shared-commitment/student-lived-experience'
       ],
     },
     'sac/families',
     'sac/schools',
     'sac/student-well-being',
-    'sac/national-survey',
     {
       type: 'category',
       label: 'Resources & Training',
@@ -30,6 +30,9 @@ const sidebars = {
         'sac/resources-training/online-courses'
       ],
     },
+    'sac/national-survey',
+    'sac/story-wall',
+    'sac/shared-commitment/research',
     'sac/about',
     'sac/contact',
   ],
