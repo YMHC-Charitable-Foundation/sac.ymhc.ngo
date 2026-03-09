@@ -5,16 +5,14 @@ title: 'Schools'
 
 # Schools
 
-**Do you think your student has school attendance challenges?**
+## Do you think your student has school attendance challenges?
 
  Try to understand their warning signs, symptoms, and barriers to education and learning.
 
 *  Warning Signs Checklist  
 *   Barriers to Education Checklist
 
-   
-
-**Next steps:**
+## Next steps:
 
 * **Get educated:** resources – **Tier 1** (wellness workbooks and booklets), **Tier 2 and 3** (early intervention and targeted support): guidebook, student workbook, and handbook  
 * **Take the online courses** (YWAP and SAC: **Tiers 1 to 3 support**)  

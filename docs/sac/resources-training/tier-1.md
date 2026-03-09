@@ -5,18 +5,18 @@ title: 'Tier 1 Resources (Print, Digital Fillable, Photocopiable, Online Course)
 
 # Tier 1 Resources (Print, Digital Fillable, Photocopiable)
 
-## Tier 1 Print, Digital Fillable, and Photocopiable Resources
+| Book Title | Cover | Purchase Options |
+|:---|:---:|:---|
+| **Sources of Support** | <img src="/img/sac/resources/support2.png" width="240" /> | 🔹 [Print (EN)](https://ymhc.ngo/products/sources-of-support-for-mental-wellness-2nd-edition)<br/>🔹 [Digital (EN)](https://ymhc.ngo/products/sources-of-support-for-mental-wellness-2nd-edition-digital-fillable-personal-license)<br/>🔹 [Digital (FR)](https://ymhc.ngo/products/sources-de-force-un-guide-de-bien-etre-creatif-licence-monoposte-copy)<br/>🔹 [Photocopiable (EN)](https://ymhc.ngo/products/photocopiable-license-sources-of-support-for-mental-wellness-2nd-edition-digital-fillable)<br/>🔹 [Photocopiable (FR)](https://ymhc.ngo/products/sources-de-soutien-guide-pour-developper-des-facteurs-de-protection-pour-le-bien-etre-mental-2eme-edition-licence-de-photocopie-copy) |
+| **Sources of Strength** | <img src="/img/sac/resources/strength2.png" width="240" /> | 🔹 [Print (EN)](https://ymhc.ngo/products/sosmw-book-2nd)<br/>🔹 [Digital (EN)](https://ymhc.ngo/products/sources-of-strength-for-mental-wellness-2nd-edition-digital-fillable-personal-license)<br/>🔹 [Digital (FR)](https://ymhc.ngo/products/sources-of-strength-for-mental-wellness-2nd-edition-digital-fillable-personal-license-french)<br/>🔹 [Photocopiable (EN)](https://ymhc.ngo/products/photocopiable-license-sources-of-strength-for-mental-wellness-2nd-edition-digital-fillable)<br/>🔹 [Photocopiable (FR)](https://ymhc.ngo/products/sources-of-strength-for-mental-wellness-2nd-edition-photocopiable-license-french) |
+| **Beneath the Surface** | <img src="/img/sac/resources/surface1.png" width="240" /> | 🔹 [Print (EN)](https://ymhc.ngo/products/bts-book-2nd)<br/>🔹 [Digital (EN)](https://ymhc.ngo/products/single-user-license-beneath-the-surface-2nd-edition)<br/>🔹 [Digital (ZH)](https://ymhc.ngo/products/bts-zh-digital)<br/>🔹 [Photocopiable (EN)](https://ymhc.ngo/products/photocopiable-license-beneath-the-surface-2nd-edition-digital-fillable)<br/>🔹 [Photocopiable (ZH)](https://ymhc.ngo/products/bts-zh-photocopiable) |
+| **Mental Wellness Workbook** | <img src="/img/sac/resources/mww1.png" width="240" /> | 🔹 [Print (EN)](https://ymhc.ngo/products/mww-book-2nd)<br/>🔹 [Digital (EN)](https://ymhc.ngo/products/mental-wellness-workbook-2nd-edition-digital-fillable-personal-license)<br/>🔹 [Photocopiable (EN)](https://ymhc.ngo/products/photocopiable-license-mental-wellness-workbook-2nd-edition) |
+| **Wellness Action Plan**<br/>Booklet | <img src="/img/sac/resources/CreatingaPersonalMentalWellnessActionPlan2.png" width="240" /> | 🔹 [Buy Online](https://ymhc.ngo/products/creating-a-personal-mental-wellness-action-plan) |
+| **Coping with Stress**<br/>Booklet | <img src="/img/sac/resources/Stressedpreview.jpg" width="240" /> | 🔹 [Buy Online](https://ymhc.ngo/products/coping-with-stress-printable-digital-booklet) |
+| **Education Support Team**<br/>Booklet | <img src="/img/sac/resources/CreatingYourEducationSupportTeam1.png" width="240" /> | 🔹 [Buy Online](https://ymhc.ngo/products/creating-your-education-support-team-printable-digital-booklet) |
+| **Automatic Negative Thoughts**<br/>Booklet | <img src="/img/sac/resources/AutomaticNegativeThoughts.png" width="240" /> | 🔹 [Buy Online](https://ymhc.ngo/products/automatic-negative-thoughts-printable-digital-booklet) |
+| **The Feelings Wheel**<br/>Booklet | <img src="/img/sac/resources/TheFeelingsWheelm2.jpg" width="240" /> | 🔹 [Buy Online](https://ymhc.ngo/products/the-feelings-wheel-booklet) |
 
-* Sources of Support   
-* Sources of Strength  
-* Beneath the Surface  
-* Mental Wellness Workbook  
-* Creating a Wellness Action Plan  
-* Stress booklet  
-* Creating an Education Support Team booklet  
-* Automatic Negative Thoughts booklet  
-* Feelings booklet
+### Online Course
 
-## Online Course
-
-* **Online Course: Youth Wellness Action Plan with photocopiable book**
+* Online Course: [Youth Wellness Action Plan with photocopiable book](https://lms.ymhc.ngo/course/youth-wellness-action-plan/)
