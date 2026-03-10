@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "sac",
+	"name": "sac-ymhc-ngo",
 	"compatibility_date": "2026-03-01",
 	"assets": {
 		"directory": "./build"
