@@ -51,8 +51,8 @@ const config = {
           beforeDefaultRemarkPlugins: [youtubePlugin],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -62,8 +62,8 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -86,6 +86,7 @@ const config = {
           { from: '/contact/', to: '/docs/sac/contact' },
           { from: '/survey/', to: '/docs/sac/national-survey' },
           { from: '/training/', to: '/docs/sac/resources-training' },
+          { from: '/workshop/', to: '/docs/sac/resources-training/virtual-workshops' },
           { from: '/submit-your-story/', to: '/stories' },
           { from: '/2021/12/22/primary-school-sample/', to: '/stories' },
           { from: '/participate/', to: '/docs/survey/participate' },
@@ -244,7 +245,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'sacSidebar',
             position: 'left',
-            label: 'Understanding SAC',
+            label: 'SAC Resources',
           },
           {
             type: 'docSidebar',
@@ -267,13 +268,17 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Understanding SAC',
+                label: 'SAC Resources',
                 to: '/docs/sac/shared-commitment',
               },
               {
                 label: 'National Survey',
                 to: '/docs/survey/introduction',
               },
+              {
+                label: 'Story Wall',
+                to: '/stories',
+              }
             ],
           },
           {
