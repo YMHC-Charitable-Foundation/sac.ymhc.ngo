@@ -1,0 +1,220 @@
+.mainContainer {
+  min-height: calc(100vh - 60px);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.loader {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 4rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* Masonry Grid */
+.masonryGrid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .masonryGrid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonryGrid {
+    column-count: 3;
+  }
+}
+
+/* Card */
+.storyCard {
+  break-inside: avoid;
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  position: relative;
+}
+
+[data-theme='dark'] .storyCard {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.storyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .storyCard:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.cardHeader {
+  border-top-width: 4px;
+  border-top-style: solid;
+  margin: -1.5rem -1.5rem 1rem -1.5rem; /* Stretch completely to outer edges */
+  padding: 1.5rem 1.5rem 0 1.5rem; /* Push content back inside */
+  border-radius: 12px 12px 0 0;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-font-color-base);
+}
+
+.categoryBadge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badgeElementary {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+[data-theme='dark'] .badgeElementary {
+  background-color: #065f46;
+  color: #ecfdf5;
+}
+
+.badgeSecondary {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+[data-theme='dark'] .badgeSecondary {
+  background-color: #3730a3;
+  color: #e0e7ff;
+}
+
+.badgeMiddle {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+[data-theme='dark'] .badgeMiddle {
+  background-color: #92400e;
+  color: #fef3c7;
+}
+
+.badgeOther {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+}
+[data-theme='dark'] .badgeOther {
+  background-color: var(--ifm-color-primary-darker);
+  color: #fff;
+}
+
+.cardBody {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+  font-style: italic;
+}
+
+.readMore {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-align: right;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background-color: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: var(--ifm-color-danger);
+}
+
+.modalTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  padding-right: 2rem; /* prevent overlap with close btn */
+  color: var(--ifm-font-color-base);
+}
+
+.modalBadgeWrapper {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modalBody {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.modalBody p {
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 1.5rem;
+  }
+}
