@@ -267,11 +267,11 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'SAC',
+                label: 'Understanding SAC',
                 to: '/docs/sac/shared-commitment',
               },
               {
-                label: 'Survey',
+                label: 'National Survey',
                 to: '/docs/survey/introduction',
               },
             ],
@@ -293,20 +293,20 @@ const config = {
             title: 'Policies & Contact',
             items: [
               {
-                label: 'Privacy policy',
-                href: 'https://ymhc.ngo/policies/privacy-policy',
+                label: 'Land Acknowledgement and Commitment',
+                href: '/land-acknowledgement',
               },
               {
                 label: 'Terms of service',
                 href: 'https://ymhc.ngo/policies/terms-of-service',
               },
               {
-                label: 'Contact information',
-                href: 'https://ymhc.ngo/policies/contact-information',
+                label: 'Privacy policy',
+                href: 'https://ymhc.ngo/policies/privacy-policy',
               },
               {
-                label: 'Land Acknowledgement and Commitment',
-                href: 'https://ymhc.ngo/',
+                label: 'Contact information',
+                href: 'https://ymhc.ngo/policies/contact-information',
               },
             ],
           },
