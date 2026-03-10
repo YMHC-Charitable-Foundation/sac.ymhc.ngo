@@ -87,6 +87,7 @@ const config = {
           { from: '/survey/', to: '/docs/sac/national-survey' },
           { from: '/training/', to: '/docs/sac/resources-training' },
           { from: '/workshop/', to: '/docs/sac/resources-training/virtual-workshops' },
+          { from: '/resources/', to: '/docs/sac/resources-training' },
           { from: '/submit-your-story/', to: '/stories' },
           { from: '/2021/12/22/primary-school-sample/', to: '/stories' },
           { from: '/participate/', to: '/docs/survey/participate' },
