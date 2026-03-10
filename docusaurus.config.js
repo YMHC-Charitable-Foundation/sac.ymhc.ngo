@@ -95,15 +95,15 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'sacSidebar',
             position: 'left',
-            label: 'SAC',
+            label: 'Understanding SAC',
           },
           {
             type: 'docSidebar',
             sidebarId: 'surveySidebar',
             position: 'left',
-            label: 'Survey',
+            label: 'National Survey',
           },
-          { to: '/stories', label: 'Stories', position: 'left' },
+          { to: '/stories', label: 'Story Wall', position: 'left' },
           {
             href: 'https://ymhc.ngo/',
             label: 'ymhc.ngo',

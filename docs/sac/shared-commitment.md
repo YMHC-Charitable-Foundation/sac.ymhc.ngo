@@ -6,23 +6,23 @@ title: 'Shared Commitment to Change'
 # Shared Commitment to Change
 
 
-"Adequate special education is not a dispensable luxury. It is the ramp that provides access to the statutory commitment to education made to all children.”
-
-**Supreme Court of Canada, Moore vs BC**
-
- 
-
-"From my many years working with children and families, I believe strongly that the most important element of an inclusive educational setting is the attitude of the teachers and the staff at a school. It is the best, because it is free, it can be implemented tomorrow and it can make a huge, life-long difference in children's lives. Everyone can do it.
-
-Starting right now."
-
-**Dr. Natalie Thompson, Lecturer in Education, [Charles Sturt University](https://scholar.google.com/citations?view_op=view_org&hl=en&org=7524480985532678204)** 
+> Adequate special education is not a dispensable luxury. It is the ramp that provides access to the statutory commitment to education made to all children.
+>
+> — **Supreme Court of Canada, Moore vs BC**
 
  
 
-"When adults work in partnership \- listening openly, sharing insights, and respecting each other's role in a young person's life \- we create the conditions for a truly supportive school-home relationship. And at the centre of that relationship is the child, who benefits most when the adults around them are united, collaborative, and grounded in care."
+> From my many years working with children and families, I believe strongly that the most important element of an inclusive educational setting is the attitude of the teachers and the staff at a school. It is the best, because it is free, it can be implemented tomorrow and it can make a huge, life-long difference in children's lives. Everyone can do it.
+>
+> Starting right now.
+>
+> — **Dr. Natalie Thompson, Lecturer in Education, Charles Sturt University** 
 
-**Symone Wheatley-Hey, Square Peg Round Whole, SPRW National Manager, Australia**
+ 
+
+> When adults work in partnership \- listening openly, sharing insights, and respecting each other's role in a young person's life \- we create the conditions for a truly supportive school-home relationship. And at the centre of that relationship is the child, who benefits most when the adults around them are united, collaborative, and grounded in care.
+>
+> — **Symone Wheatley-Hey, Square Peg Round Whole, SPRW National Manager, Australia**
 
 If we, as a society, believe that an education is a human right and an important societal value, why are we not doing more for students with disabilities, school attendance challenges, neurodivergence, and barriers to education who are not able to access and manage an education?
 
