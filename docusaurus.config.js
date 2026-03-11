@@ -12,7 +12,7 @@ import youtubePlugin from './src/remark/youtube.js';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'School Attendance Challenges',
-  tagline: 'Youth Mental Health Canada',
+  tagline: 'Addressing Barriers to Education with Tiered School-Wide Strategies',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

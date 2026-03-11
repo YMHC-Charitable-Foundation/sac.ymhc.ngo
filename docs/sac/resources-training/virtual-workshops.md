@@ -9,7 +9,13 @@ import Link from '@docusaurus/Link';
 
 ## About the Training
 
-How we support young people once a student is struggling with their mental health and school attendance challenges is critical. How we build student well-being and school protective factors, develop needs-based educational strategies and models, and create proactive and preventative approaches to supporting young people with school attendance challenges is at the heart of upstream prevention and our values of creating schools where students feel safe, supported, and valued.
+* Effective upstream prevention of school attendance challenges requires:
+    * Centering student well-being in educational planning and practice
+    * Building protective factors and fostering a positive, safe, and supportive school climate
+    * Implementing needs-based educational approaches that reflect the realities of diverse student needs
+    * Prioritizing proactive and preventative strategies to address barriers early
+    * Recognizing shared responsibility for student well-being, suicide prevention, and engagement in education
+    * Strengthening collaborative education support teams that include students, families, educators, community members, and mental health professionals
 
 The topic of school attendance challenges is one of the most pressing issues in education, student mental health and well-being, and suicide prevention. 
 

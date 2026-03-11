@@ -20,3 +20,7 @@ This means that improving student well-being is not separate from education; it 
 Student well-being is not separate from education; it is a foundational condition for learning, engagement, and achievement. In Canada, growing concerns about youth mental health and school attendance highlight the need for education systems that prioritize mental wellness alongside academic instruction. When schools, families, and communities work together to support student well-being, young people are far more able to access, manage, and succeed in their education
 
 ![](/img/sac/student-wellbeing.png)
+
+Credit: The Student Wellbeing Pathways Model 
+
+The Student Wellbeing Pathways Model provides a framework for schools to foster student mental health, academic success, and overall development through evidence-informed, systemic approaches. Mudarrisa: Jurnal Kajian Pendidikan Islam, Vol. 15, No. 2, 2023 

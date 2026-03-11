@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 ## Do you think your student has school attendance challenges?
 
- Try to understand their warning signs, symptoms, and barriers to education and learning.
+Try to understand their warning signs, symptoms, and barriers to education and learning.
 
 *  Warning Signs Checklist  
 *  Barriers to Education Checklist

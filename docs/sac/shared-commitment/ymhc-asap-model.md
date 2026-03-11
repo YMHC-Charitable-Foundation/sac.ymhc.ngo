@@ -5,7 +5,7 @@ title: 'YMHC ASAP Model'
 
 # YMHC ASAP Model
 
-## What is the YMHC ASAP model?
+## What is the YMHC ASAP model for School Attendance Challenges?
 
 ## A = Awareness
 Awareness of school triggers and stressors, stress responses, warning signs and symptoms, changes in mood, behavior, diet, sleep, and class participation, and sensory, social, and demand overwhelm, overload, and shutdown. 
