@@ -5,17 +5,15 @@ title: 'About'
 
 # About
 
-**Working together to better understand absence from school & find effective inclusive, whole school solutions to the attendance, student mental health, and suicide crises.**
+Our work in education, student mental health, wellness, and suicide prevention, and disability inclusion focuses on bringing students, educators, families, professionals, and communities together to better understand the complex causes of school absence and chronic absenteeism. By sharing knowledge, research, and lived experience, we aim to identify effective, inclusive, and compassionate responses.
+
+Through collaborative, whole-school approaches, we seek to address the interconnected challenges of student attendance, mental health, and youth suicide prevention. Our goal is to support schools in developing environments where every student feels understood, included, and able to access and succeed in their education.
 
 ## About YMHC
 
 Youth Mental Health Canada is a registered charitable non-profit organization, focused on mental health education, support, advocacy, and change. 
 
 YMHC focuses on evidence-based, strength-focused, trauma-informed, and culturally sensitive tools for wellness that are proactive, practical, and empowering.
-
-Our work in education, student mental health, wellness, and suicide prevention, and disability inclusion focuses on bringing students, educators, families, professionals, and communities together to better understand the complex causes of school absence and chronic absenteeism. By sharing knowledge, research, and lived experience, we aim to identify effective, inclusive, and compassionate responses.
-
-Through collaborative, whole-school approaches, we seek to address the interconnected challenges of student attendance, mental health, and youth suicide prevention. Our goal is to support schools in developing environments where every student feels understood, included, and able to access and succeed in their education.
 
 ## About Sheryl
 
