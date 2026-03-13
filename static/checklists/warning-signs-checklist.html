@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warning Signs Checklist – School Attendance Challenges</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f7fa;
+      color: #1a2236;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a4a8a 0%, #2563c4 100%);
+      color: #fff;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    header .org { font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 6px; }
+    header .subtitle { font-size: 0.95rem; opacity: 0.85; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .toolbar button {
+      padding: 7px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .toolbar button:active { transform: scale(0.97); }
+    .btn-clear { background: #f1f5f9; color: #475569; }
+    .btn-clear:hover { background: #e2e8f0; }
+    .btn-print { background: #1a4a8a; color: #fff; }
+    .btn-print:hover { background: #163d73; }
+    .progress-wrap { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #475569; }
+    .progress-bar-outer { width: 160px; height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .progress-bar-inner { height: 100%; background: linear-gradient(90deg, #2563c4, #22c55e); border-radius: 99px; transition: width 0.3s; }
+    #progress-label { font-weight: 600; color: #1a4a8a; min-width: 60px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+
+    .instructions {
+      background: #eff6ff;
+      border-left: 4px solid #2563c4;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 0.93rem;
+      color: #1e3a5f;
+    }
+    .instructions strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header .icon { font-size: 1.15rem; }
+    .section-header .count {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.35);
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+    .section-header .chevron { font-size: 0.8rem; transition: transform 0.2s; opacity: 0.7; }
+    .section-header.collapsed .chevron { transform: rotate(-90deg); }
+
+    /* Section color theming */
+    .sec-emotional .section-header { background: #fdf4ff; color: #6b21a8; }
+    .sec-emotional .section-header .count { background: #e9d5ff; }
+    .sec-physical  .section-header { background: #fff7ed; color: #c2410c; }
+    .sec-physical  .section-header .count { background: #fed7aa; }
+    .sec-behavioral .section-header { background: #f0fdf4; color: #166534; }
+    .sec-behavioral .section-header .count { background: #bbf7d0; }
+    .sec-social    .section-header { background: #eff6ff; color: #1d4ed8; }
+    .sec-social    .section-header .count { background: #bfdbfe; }
+    .sec-cognitive .section-header { background: #fefce8; color: #854d0e; }
+    .sec-cognitive .section-header .count { background: #fef08a; }
+    .sec-attendance .section-header { background: #f0fdfa; color: #0f766e; }
+    .sec-attendance .section-header .count { background: #99f6e4; }
+    .sec-voice     .section-header { background: #fff1f2; color: #be123c; }
+    .sec-voice     .section-header .count { background: #fecdd3; }
+
+    .section-body { padding: 6px 0 10px; }
+    .section-note { padding: 4px 20px 10px; font-size: 0.85rem; color: #64748b; font-style: italic; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+    .item:hover { background: #f8fafc; }
+    .item.checked { background: #f0fdf4; }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #2563c4;
+      cursor: pointer;
+    }
+    .item label {
+      font-size: 0.93rem;
+      cursor: pointer;
+      flex: 1;
+    }
+    .item.checked label { color: #15803d; }
+
+    @media print {
+      body { background: #fff; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toolbar { display: none; }
+      .section-body { display: block !important; }
+      .item.checked { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="org">Youth Mental Health Canada</div>
+  <h1>Warning Signs Checklist</h1>
+  <div class="subtitle">School Attendance Challenges &nbsp;·&nbsp; For Families and Schools</div>
+</header>
+
+<div class="toolbar">
+  <div class="progress-wrap">
+    <span>Progress:</span>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar" style="width:0%"></div></div>
+    <span id="progress-label">0 / 0</span>
+  </div>
+  <button class="btn-clear" onclick="clearAll()">Clear All</button>
+  <button class="btn-print" onclick="window.print()">🖨 Print</button>
+</div>
+
+<div class="container">
+
+  <div class="instructions">
+    <strong>Instructions</strong>
+    This checklist helps identify early warning signs that a student may be experiencing difficulties attending school. School attendance challenges are often connected to emotional, social, health, or learning barriers. Early recognition of these signs can support timely intervention and prevent further disengagement.
+    <br><br>Review the checklist and mark any signs that have been observed.
+  </div>
+
+  <!-- Emotional Signs -->
+  <div class="section sec-emotional">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💜</span> Emotional Signs
+      <span class="count" id="cnt-emotional">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Frequent anxiety about going to school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Panic or distress when discussing school attendance</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Excessive worry about academic performance or social situations</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Irritability or mood swings related to school days</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feelings of sadness, hopelessness, or low motivation</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increased emotional sensitivity or frustration</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Fear of embarrassment, failure, or judgment at school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Withdrawal from activities previously enjoyed</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Expressions of feeling overwhelmed by school demands</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Low self-esteem or negative self-talk about abilities</label></div>
+    </div>
+  </div>
+
+  <!-- Physical Signs -->
+  <div class="section sec-physical">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧡</span> Physical Signs
+      <span class="count" id="cnt-physical">0 / 9</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Frequent headaches, stomach aches, or nausea on school mornings</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Complaints of illness that improve when staying home</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Fatigue or low energy, especially before school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty sleeping or disrupted sleep patterns</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Changes in appetite</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Physical tension, restlessness, or shaking when preparing for school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increased requests to go home</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Physical exhaustion after attending school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Psychosomatic symptoms linked to school-related stress</label></div>
+    </div>
+  </div>
+
+  <!-- Behavioral Signs -->
+  <div class="section sec-behavioral">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💚</span> Behavioral Signs
+      <span class="count" id="cnt-behavioral">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Frequent lateness or difficulty arriving at school on time</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increased absences or requests to stay home</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Leaving school early or visiting the office frequently</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Avoidance of specific classes, teachers, or locations in school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Inability to attend school or difficulty leaving home</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Declining participation in school activities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increased emotional outbursts before school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Resistance to discussing school topics</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Procrastination or avoidance of homework and assignments</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increased reliance on parents to stay home or leave school</label></div>
+    </div>
+  </div>
+
+  <!-- Social Signs -->
+  <div class="section sec-social">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💙</span> Social Signs
+      <span class="count" id="cnt-social">0 / 9</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Withdrawal from friends or peer groups</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Avoidance of social interactions at school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty forming or maintaining friendships</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Reports of bullying or peer conflict</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feeling excluded or isolated from peers</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Reluctance to participate in group activities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of sense of belonging at school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increased time spent alone during school breaks or lunch</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Conflict with peers or social anxiety in school settings</label></div>
+    </div>
+  </div>
+
+  <!-- Cognitive Signs -->
+  <div class="section sec-cognitive">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💛</span> Cognitive Signs
+      <span class="count" id="cnt-cognitive">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty concentrating in class</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Trouble remembering instructions or completing tasks</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Negative thoughts about school ("I can't do this," "I'm going to fail")</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Catastrophic thinking about school situations</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Persistent worry about academic expectations</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feeling overwhelmed by assignments or workload</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty making decisions related to school tasks</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Decreased motivation toward schoolwork</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Declining academic performance or incomplete assignments</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Mental "shut down" when facing school demands</label></div>
+    </div>
+  </div>
+
+  <!-- Attendance Indicators -->
+  <div class="section sec-attendance">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">📅</span> Attendance Indicators
+      <span class="count" id="cnt-attendance">0 / 5</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Increasing pattern of absences</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Chronic lateness or missed classes</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Partial attendance or frequent early departures</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Avoidance of certain days (tests, presentations, specific classes)</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Gradual disengagement from school routines</label></div>
+    </div>
+  </div>
+
+  <!-- Student Voice -->
+  <div class="section sec-voice">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🗣</span> Student Voice Indicators
+      <span class="count" id="cnt-voice">0 / 6</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="section-note">Students may say things such as:</div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"School makes me feel really anxious."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"I feel overwhelmed when I think about going to school."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"I don't feel like I belong there."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"I'm worried about what other people think of me."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"I feel behind and don't know how to catch up."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"Sometimes it feels impossible to go."</label></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const sectionMap = {
+    'cnt-emotional':  '.sec-emotional',
+    'cnt-physical':   '.sec-physical',
+    'cnt-behavioral': '.sec-behavioral',
+    'cnt-social':     '.sec-social',
+    'cnt-cognitive':  '.sec-cognitive',
+    'cnt-attendance': '.sec-attendance',
+    'cnt-voice':      '.sec-voice',
+  };
+
+  function toggle(itemEl) {
+    const cb = itemEl.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    itemEl.classList.toggle('checked', cb.checked);
+    updateProgress();
+  }
+
+  function toggleSection(headerEl) {
+    const body = headerEl.nextElementSibling;
+    const collapsed = body.style.display === 'none';
+    body.style.display = collapsed ? '' : 'none';
+    headerEl.classList.toggle('collapsed', !collapsed);
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.item input[type="checkbox"]');
+    const checked = document.querySelectorAll('.item input[type="checkbox"]:checked');
+    const bar = document.getElementById('progress-bar');
+    const label = document.getElementById('progress-label');
+    const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+    bar.style.width = pct + '%';
+    label.textContent = checked.length + ' / ' + all.length;
+
+    // Update per-section counts
+    for (const [countId, selector] of Object.entries(sectionMap)) {
+      const section = document.querySelector(selector);
+      const secAll = section.querySelectorAll('.item input[type="checkbox"]');
+      const secChecked = section.querySelectorAll('.item input[type="checkbox"]:checked');
+      document.getElementById(countId).textContent = secChecked.length + ' / ' + secAll.length;
+    }
+  }
+
+  function clearAll() {
+    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+      cb.checked = false;
+      cb.closest('.item').classList.remove('checked');
+    });
+    updateProgress();
+  }
+
+  // Init progress on load
+  updateProgress();
+</script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Barriers to Education Checklist – School Attendance Challenges</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f7fa;
+      color: #1a2236;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+      color: #fff;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    header .org { font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 6px; }
+    header .subtitle { font-size: 0.95rem; opacity: 0.85; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .toolbar button {
+      padding: 7px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .toolbar button:active { transform: scale(0.97); }
+    .btn-clear { background: #f1f5f9; color: #475569; }
+    .btn-clear:hover { background: #e2e8f0; }
+    .btn-print { background: #0f766e; color: #fff; }
+    .btn-print:hover { background: #0d6460; }
+    .progress-wrap { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #475569; }
+    .progress-bar-outer { width: 160px; height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .progress-bar-inner { height: 100%; background: linear-gradient(90deg, #0d9488, #22c55e); border-radius: 99px; transition: width 0.3s; }
+    #progress-label { font-weight: 600; color: #0f766e; min-width: 70px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+
+    .instructions {
+      background: #f0fdfa;
+      border-left: 4px solid #0d9488;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 0.93rem;
+      color: #134e4a;
+    }
+    .instructions strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header .icon { font-size: 1.15rem; }
+    .section-header .count {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+    .section-header .chevron { font-size: 0.8rem; transition: transform 0.2s; opacity: 0.7; }
+    .section-header.collapsed .chevron { transform: rotate(-90deg); }
+
+    .sec-mental   .section-header { background: #fdf4ff; color: #6b21a8; }
+    .sec-mental   .section-header .count { background: #e9d5ff; }
+    .sec-physical .section-header { background: #fff7ed; color: #c2410c; }
+    .sec-physical .section-header .count { background: #fed7aa; }
+    .sec-learning .section-header { background: #fefce8; color: #854d0e; }
+    .sec-learning .section-header .count { background: #fef08a; }
+    .sec-social   .section-header { background: #eff6ff; color: #1d4ed8; }
+    .sec-social   .section-header .count { background: #bfdbfe; }
+    .sec-neuro    .section-header { background: #f0fdfa; color: #0f766e; }
+    .sec-neuro    .section-header .count { background: #99f6e4; }
+    .sec-family   .section-header { background: #fff1f2; color: #be123c; }
+    .sec-family   .section-header .count { background: #fecdd3; }
+    .sec-transport .section-header { background: #f0f9ff; color: #0369a1; }
+    .sec-transport .section-header .count { background: #bae6fd; }
+    .sec-systemic  .section-header { background: #f9fafb; color: #374151; }
+    .sec-systemic  .section-header .count { background: #e5e7eb; }
+    .sec-community .section-header { background: #fdf2f8; color: #9d174d; }
+    .sec-community .section-header .count { background: #fbcfe8; }
+
+    .section-body { padding: 6px 0 10px; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+    .item:hover { background: #f8fafc; }
+    .item.checked { background: #f0fdf4; }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #0d9488;
+      cursor: pointer;
+    }
+    .item label {
+      font-size: 0.93rem;
+      cursor: pointer;
+      flex: 1;
+    }
+    .item.checked label { color: #15803d; }
+
+    @media print {
+      body { background: #fff; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toolbar { display: none; }
+      .section-body { display: block !important; }
+      .item.checked { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="org">Youth Mental Health Canada</div>
+  <h1>Student Barriers to Education Checklist</h1>
+  <div class="subtitle">School Attendance Challenges &nbsp;·&nbsp; For Families and Schools</div>
+</header>
+
+<div class="toolbar">
+  <div class="progress-wrap">
+    <span>Progress:</span>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar" style="width:0%"></div></div>
+    <span id="progress-label">0 / 0</span>
+  </div>
+  <button class="btn-clear" onclick="clearAll()">Clear All</button>
+  <button class="btn-print" onclick="window.print()">🖨 Print</button>
+</div>
+
+<div class="container">
+
+  <div class="instructions">
+    <strong>Instructions</strong>
+    Use this checklist to identify potential barriers that may be preventing a student from attending school. Mark any barriers that apply to the student's situation. This information can help guide the development of an individualized education support plan.
+  </div>
+
+  <!-- Mental Health & Emotional Well-Being -->
+  <div class="section sec-mental">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💜</span> Mental Health &amp; Emotional Well-Being
+      <span class="count" id="cnt-mental">0 / 12</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Anxiety about school or specific classes</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Low mood or depression</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Frequent stress or feeling overwhelmed</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Emotional dysregulation or difficulty managing feelings</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>School-related anxiety or school avoidance</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Low self-confidence or self-esteem</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feelings of loneliness or isolation</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Fear of failure or perfectionism</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty coping with change or transitions</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Experiences of grief or loss</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Self-harm concerns or significant emotional distress</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Other concerns related to mental health</label></div>
+    </div>
+  </div>
+
+  <!-- Physical Health -->
+  <div class="section sec-physical">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧡</span> Physical Health
+      <span class="count" id="cnt-physical">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Chronic illness or medical condition</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Frequent headaches, stomach aches, or physical complaints</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Fatigue or low energy</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Poor sleep or insomnia</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Irregular sleep schedule</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Medication side effects</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Nutrition or food insecurity concerns</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Physical disability affecting school participation</label></div>
+    </div>
+  </div>
+
+  <!-- Learning & Academic Barriers -->
+  <div class="section sec-learning">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💛</span> Learning &amp; Academic Barriers
+      <span class="count" id="cnt-learning">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty understanding lessons or instructions</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Struggling with reading, writing, or math</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Learning disability or suspected learning difficulty</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Attention or concentration difficulties</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Executive functioning challenges (organization, time management, planning)</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feeling academically behind peers</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of academic supports or accommodations</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Overwhelming workload or assignments</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty with online learning or technology</label></div>
+    </div>
+  </div>
+
+  <!-- Social & Relational Barriers -->
+  <div class="section sec-social">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💙</span> Social &amp; Relational Barriers
+      <span class="count" id="cnt-social">0 / 9</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Bullying or peer/school staff conflict</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Cyberbullying</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feeling unsafe at school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of sense of belonging at school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Negative relationships with peers</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty forming friendships</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Cultural or identity-based discrimination</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Feeling misunderstood by teachers or staff</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of a trusted adult at school</label></div>
+    </div>
+  </div>
+
+  <!-- Neurodiversity & Disability Needs -->
+  <div class="section sec-neuro">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧠</span> Neurodiversity &amp; Disability Needs
+      <span class="count" id="cnt-neuro">0 / 7</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Classroom environment not meeting learning needs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Autism spectrum differences</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>ADHD or attention-related challenges</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sensory sensitivities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty with transitions between activities or classes</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Need for individualized learning support</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of appropriate accommodations</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty navigating school systems or expectations</label></div>
+    </div>
+  </div>
+
+  <!-- Family & Home Circumstances -->
+  <div class="section sec-family">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🏡</span> Family &amp; Home Circumstances
+      <span class="count" id="cnt-family">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Family stress or conflict</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Family illness or caregiving responsibilities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Housing instability or homelessness</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Financial stress or poverty</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Food insecurity</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of quiet space for homework</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Limited access to the internet or technology</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Family mental health challenges</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Parental work schedules affecting supervision</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Family relocation or immigration stress</label></div>
+    </div>
+  </div>
+
+  <!-- Transportation & Access -->
+  <div class="section sec-transport">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🚌</span> Transportation &amp; Access
+      <span class="count" id="cnt-transport">0 / 6</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulty getting to school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Long commute or unreliable transportation</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Safety concerns on route to school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Bus or transportation issues</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Weather-related barriers</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Physical accessibility challenges</label></div>
+    </div>
+  </div>
+
+  <!-- Systemic & Institutional Barriers -->
+  <div class="section sec-systemic">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🏫</span> Systemic &amp; Institutional Barriers
+      <span class="count" id="cnt-systemic">0 / 7</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Strict attendance policies that do not consider health or disability needs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of flexibility in scheduling or learning approaches</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Limited access to counselling or support services</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Long wait times for assessments or supports</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Communication challenges between school and family</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Language barriers</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of culturally responsive supports</label></div>
+    </div>
+  </div>
+
+  <!-- Community & Environmental Factors -->
+  <div class="section sec-community">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🌍</span> Community &amp; Environmental Factors
+      <span class="count" id="cnt-community">0 / 6</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Lack of community support</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Exposure to violence or unsafe neighbourhood conditions</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Limited access to youth programs or activities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Social isolation outside school</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Negative peer influences</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Substance use concerns</label></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const sectionMap = {
+    'cnt-mental':     '.sec-mental',
+    'cnt-physical':   '.sec-physical',
+    'cnt-learning':   '.sec-learning',
+    'cnt-social':     '.sec-social',
+    'cnt-neuro':      '.sec-neuro',
+    'cnt-family':     '.sec-family',
+    'cnt-transport':  '.sec-transport',
+    'cnt-systemic':   '.sec-systemic',
+    'cnt-community':  '.sec-community',
+  };
+
+  function toggle(itemEl) {
+    const cb = itemEl.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    itemEl.classList.toggle('checked', cb.checked);
+    updateProgress();
+  }
+
+  function toggleSection(headerEl) {
+    const body = headerEl.nextElementSibling;
+    const collapsed = body.style.display === 'none';
+    body.style.display = collapsed ? '' : 'none';
+    headerEl.classList.toggle('collapsed', !collapsed);
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.item input[type="checkbox"]');
+    const checked = document.querySelectorAll('.item input[type="checkbox"]:checked');
+    const bar = document.getElementById('progress-bar');
+    const label = document.getElementById('progress-label');
+    const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+    bar.style.width = pct + '%';
+    label.textContent = checked.length + ' / ' + all.length;
+
+    for (const [countId, selector] of Object.entries(sectionMap)) {
+      const section = document.querySelector(selector);
+      const secAll = section.querySelectorAll('.item input[type="checkbox"]');
+      const secChecked = section.querySelectorAll('.item input[type="checkbox"]:checked');
+      document.getElementById(countId).textContent = secChecked.length + ' / ' + secAll.length;
+    }
+  }
+
+  function clearAll() {
+    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+      cb.checked = false;
+      cb.closest('.item').classList.remove('checked');
+    });
+    updateProgress();
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
