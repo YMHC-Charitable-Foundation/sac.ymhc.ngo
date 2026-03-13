@@ -19,33 +19,79 @@ The understanding of truancy has changed over the years with more school support
 
 Thambirajah, et al. discuss statistics for school absenteeism: ‘hidden somewhere in the statistics is a small but significant subgroup of school non-attenders variously called school phobics, school refusers, and school avoiders’ (2008:13); they suggest this signifies a reluctance to acknowledge the issue in official record keeping. The children are: ‘often misclassified as truants; the parents are blamed for their inability to get these children to attend school, or they may masquerade as medically sanctioned absences’. In addition, they state: ‘this category of school non-attenders has been recognised by educational and health professionals for more than 75 years, yet they are ignored in official statistics and remain largely invisible’ (ibid, 2008:13).
 
-## The Impact of School Attendance Challenges
+## School Attendance Challenges and Chronic Absenteeism
 
-Attending school regularly is a vital factor in school success for students. Chronic or lengthy school absenteeism is often linked to poor outcomes. 
+Attending school regularly is a critical factor in students' academic success, social development, and long-term well-being. When students experience chronic or prolonged absenteeism, the consequences can extend far beyond missed lessons, affecting educational outcomes, mental health, and future life opportunities.
 
-According to Jason A. Schoeneberger’s “Longitudinal Attendance Patterns” study, _excessive absenteeism increases the chances of a student eventually dropping out of school, which can lead to long-term consequences for these students, such as lower average incomes, higher incidences of unemployment, and a higher likelihood of incarceration._ (6) Schoeneberger asserts that students who drop out of school face a higher risk of poverty because of their inability to secure quality paying employment due to their lack of education and resources. Dropouts who lack education and resources are more likely to commit criminal offenses leading to incarceration.
+Research demonstrates that excessive absenteeism is strongly associated with negative long-term outcomes. For example, Jason A. Schoeneberger's Longitudinal Attendance Patterns study found that students who frequently miss school are significantly more likely to drop out. Dropping out is linked to lower lifetime earnings, higher unemployment rates, and an increased likelihood of involvement with the criminal justice system.
 
-Mental wellness protective supports and factors dramatically decrease with unsupported mental health disabilities including school attendance challenges and lead to chronic absenteeism and increased risk factors for a range of issues including suicide. 
+Across Canada, chronic absenteeism has become a growing concern. In some regions, absenteeism rates range from 20% to 80% of students, highlighting the scale of the issue and the urgent need for coordinated responses across schools and communities. 
 
-It is time that we recognize the discriminatory and exclusionary approaches, treatment, and attitudes that families experience when seeking support for their child. It is also time that we recognize the multiple losses students experience when their mental health disabilities are not supported by societal systems. It is hoped that this report by YMHC will contribute towards greater recognition and acknowledgement of issues related to school attendance challenges and chronic absenteeism.
+## Understanding School Attendance Challenges
 
-### Possible Negative Outcomes
+School attendance challenges are often misunderstood.  Many students who are unable to attend school want to participate in their education but experience significant emotional, psychological, or physical distress that prevents them from doing so.
 
--   Loss of education and academic and employment potential
--   Loss of peer support and school support networks
--   Loss of mental wellness protective factors and increase in suicide risk factors
+Students experiencing school attendance challenges may struggle with:
+
+-   Severe anxiety or panic related to school
+-   Emotional distress when preparing for school or leaving home
+-   Difficulty entering the school building or remaining in class
+-   Physical symptoms such as headaches, stomach pain, or exhaustion
+-   Feelings of shame, fear, or overwhelm
+
+These experiences are often connected to underlying mental health challenges such as anxiety disorders, depression, trauma, neurodiversity, or other disabilities. School attendance challenges are therefore best understood as complex mental health and disability issues, rather than behavioral problems.
+
+When these challenges are not recognized or supported appropriately, students may begin avoiding school altogether, which can lead to chronic absenteeism and long-term disengagement from education.
+
+## Impact on Mental Health and Well-Being
+
+School environments provide many protective factors that support mental wellness, including peer relationships, supportive adults, daily routines, and opportunities for achievement and belonging. When students are unable to attend school, these protective supports can disappear.
+
+As a result, unsupported school attendance challenges can contribute to increased mental health risks, including:
+
+-   Depression and anxiety
+-   Social isolation
+-   Non-suicidal self-injury
+-   Increased suicide risk factors
+-   Reduced self-esteem and sense of belonging
+
+Research and lived experience show that when students lose connection to school, they also lose access to critical emotional and social support networks.
+
+## Possible Negative Outcomes of Chronic Absenteeism
+
+When school attendance challenges are not addressed through supportive and inclusive approaches, students may experience a range of negative outcomes, including:
+
+-   Loss of education and academic potential
 -   Decreased academic performance
--   More likely to experience life insecurity, including financial and employment insecurity
--   Decreased mental and physical health
--   Involvement in the criminal justice system
+-   Loss of peer relationships and school support networks
+-   Loss of mental wellness protective factors and increased suicide risk factors
+-   Gaps in knowledge and reduced literacy and numeracy skills
 -   Decreased employment opportunities
--   Self and societal stigma
--   Loss of skills and competency in literacy and mathematics
--   Gaps in knowledge
+-   Financial and employment insecurity later in life
+-   Increased involvement with the criminal justice system
+-   Poorer physical and mental health outcomes
+-   Stigma experienced by both students and families
 
-## Mental Health Disabilities and Chronic Absenteeism
+These impacts highlight why school attendance challenges are not simply an educational issue but a public health, mental health, suicide prevention, and social equity issue.
 
-Non-attendance at school or chronic absenteeism is commonly (and wrongly) referred to as “school refusal”. This inability to attend school due to school attendance challenges and mental health disabilities occurs with students who experience intense and severe emotional and physical distress when sleeping, waking up, leaving the house, entering the school building, and staying in school. The result of unsupported school attendance challenges is school avoidance and chronic absenteeism.
+## The Need for Compassionate and Inclusive Approaches
 
-Students with school attendance challenges experience a range of psychological, emotional, social, and physical symptoms, often leading to depression, non-suicidal self-injury (commonly known as self-harm), and suicide experiences. School attendance challenges is recognized as a complex mental health disability, with multiple causative factors and influences, requiring comprehensive needs-based, trauma-informed, and culturally sensitive approaches and supports.
+Families often report experiencing blame, stigma, or exclusion when seeking support for children who struggle to attend school. These responses can worsen the situation and discourage families from seeking help.
+
+Instead, effective responses require:
+
+-   Trauma-informed and needs-based approaches
+-   Recognition of mental health and disability factors
+-   Collaboration between families, schools, and mental health professionals
+-   Inclusive school environments that recognize diverse learning and emotional needs
+-   Early identification and intervention strategies
+
+School attendance challenges are best addressed through whole-school and community-wide strategies that support students' mental health, sense of belonging, and ability to access education.
+
+## Moving Forward
+
+Recognizing school attendance challenges as complex mental health and accessibility issues is an essential step toward meaningful change. By improving awareness, reducing stigma, and implementing supportive educational strategies, schools and communities can help students reconnect with learning and regain access to the protective benefits that education provides.
+
+YMHC's work in training, research, resource development, and national and international collaboration aims to bring greater recognition to this issue and develop strategies that support students, families, and educators in addressing chronic absenteeism and school attendance challenges.
+
 

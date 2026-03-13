@@ -14,17 +14,17 @@ Try to understand their warning signs, symptoms, and barriers to education and l
 *  Warning Signs Checklist  
 *  Barriers to Education Checklist
 
-### Warning Signs Checklist (free download)  
+### Warning Signs Checklist
 
-Download the Warning Signs Checklist.
+Use this interactive checklist to identify early warning signs that a student may be experiencing school attendance challenges.
 
-<Link className="button button--primary button--lg" to="pathname:///download/warning-signs-checklist.docx" target="_blank" download>Download</Link>
+<Link className="button button--primary button--lg" to="pathname:///checklists/warning-signs-checklist.html" target="_blank">Open Checklist</Link>
 
-### Barriers to Education Checklist (free download)
+### Barriers to Education Checklist
 
-Download the Barriers to Education Checklist.
+Use this interactive checklist to identify potential barriers to a student's education and learning.
 
-<Link className="button button--primary button--lg" to="pathname:///download/barriers-to-education-checklist.docx" target="_blank" download>Download</Link>
+<Link className="button button--primary button--lg" to="pathname:///checklists/barriers-to-education-checklist.html" target="_blank">Open Checklist</Link>
 
 ## Next steps
 

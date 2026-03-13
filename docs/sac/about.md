@@ -42,6 +42,15 @@ Sheryl is a member of the International Association of Youth Mental Health,the I
 
 We are committed to education equity, disability inclusion, trauma and culturally sensitive approaches, and schooling models that fit the needs of all students. 
 
+Our Vision of Student Well-Being and Educational Equity and Access Includes:
+
+-   Equitable and universal access to education and learning opportunities
+-   Barrier-free learning environments with an awareness of potential barriers and action to respond and reduce learning challenges. 
+-   Strength-based education focused on students' interests, motivators, and passions to increase engagement, relevance, and motivation for learning.
+-   Inclusive education systems
+-   Needs-based and accessible education supports
+-   Safe, supportive, and inclusive learning environments that recognize the impact of trauma and promote students' emotional well-being, resilience, and ability to engage in learning.
+
 ## About the scale of the problem
 <div className="row">
   <div className="col col--4 margin-bottom--lg">

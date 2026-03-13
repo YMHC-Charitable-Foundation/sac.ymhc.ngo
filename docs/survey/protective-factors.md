@@ -3,28 +3,35 @@ sidebar_label: 'School Mental Wellness Protective Factors'
 title: 'School Mental Wellness Protective Factors'
 ---
 
-# School Mental Wellness Protective Factors
-
 ![](/img/survey/Classroom-scaled-600x397.jpg)
 
 Photo Credit: @taypaigey
 
-# 3\. School Mental Wellness Protective Factors
+# School Mental Wellness Protective Factors
 
-The questions in this section all relate to school mental wellness protective factors: the supports needed to help maintain mental wellbeing.
+The questions in this section relate to school mental wellness protective factors---the support, environments, and practices that help students maintain positive mental health and overall well-being.
 
-School-based mental health and wellness approaches and resources can provide a strong protective support for student wellbeing. These protective supports and factors are the efforts that school communities make to contribute to the health, wellbeing, education, and strength of the student population. Providing school-based programs that create a sense of belonging, community, and connectedness can help to support student mental health.
+School-based mental health and wellness approaches play a critical role in supporting students. When schools intentionally create supportive environments and provide accessible resources, they strengthen the protective factors that promote student well-being, engagement, and resilience. These protective supports reflect the collective efforts of the school community to foster healthy development, educational success, and a strong sense of belonging among students.
+
+Programs and practices that build community, connection, and belonging within schools can significantly strengthen student mental health and create environments where students feel valued, supported, and safe.
 
 **Examples of school mental wellness protective factors and supports include:**
 
--   Students’ disability needs are understood and supported. Students have educational accommodations, supports, and services. They have knowledge of and access to supports that will help them access and manage their education and assist them to realize their potential.
--   Schools have a positive school climate: students have a sense of pride and belonging in their school community
--   Students experience their school as a safe place
--   Students have “trusted adults” in school that act as safe people
--   Students participate in school programs: in school clubs, associations, and teams.
--   School staff recognize that the use of interests, passions and motivators, daily physical activity, and the support of healthy habits creates positive mental wellness reinforcement.
+-   Students' disability-related needs are recognized, understood, and supported. Students have access to appropriate educational accommodations, supports, and services that help them access and manage their education and realize their full potential.
 
-The teaching of Social Emotional Learning, self- and emotional awareness, provides students with the awareness, language, skills, strength, and resilience to manage stress and adversity, solve problems, make decisions, identify challenges, and act to decrease potential suicide risk factors.
+-   Schools promote a positive school climate in which students experience a strong sense of pride, belonging, and connection within their school community.
+
+-   Students experience their school as a safe and supportive environment.
+
+-   Students have access to trusted adults within the school---staff members who provide guidance, safety, and support.
+
+-   Students have opportunities to participate in school programs such as clubs, associations, teams, and other extracurricular activities that strengthen engagement and social connection.
+
+-   School staff recognize that incorporating students' interests, passions, and motivators---along with encouraging daily physical activity and healthy habits---can reinforce positive mental wellness.
+
+-   Schools teach social-emotional learning, including self-awareness and emotional awareness. These skills help students develop the language, understanding, and resilience needed to manage stress and adversity, solve problems, make informed decisions, recognize challenges, and strengthen protective factors that reduce potential suicide risk.
+
+These protective factors contribute to healthier school environments where students can thrive academically, socially, and emotionally.
 
 ![](/img/survey/Wellness-Tree-500x419.png)
 

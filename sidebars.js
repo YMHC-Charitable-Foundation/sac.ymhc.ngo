@@ -46,7 +46,6 @@ const sidebars = {
     'survey/punitive-approaches',
     'survey/needs-based-approach',
     'survey/conclusion',
-    'survey/recommendations',
     'survey/references',
     'survey/interactive-report',
     'survey/participate'

@@ -28,7 +28,6 @@ const files = [
   'survey/punitive-approaches.md',
   'survey/needs-based-approach.md',
   'survey/conclusion.md',
-  'survey/recommendations.md',
   'survey/references.md',
   'survey/interactive-report.md',
   'survey/participate.md'
@@ -59,7 +58,6 @@ const fileTitles = {
   'survey/punitive-approaches.md': 'Punitive Approaches and Experience of Educational Exclusion',
   'survey/needs-based-approach.md': 'A Needs-Based Approach',
   'survey/conclusion.md': 'Conclusion',
-  'survey/recommendations.md': 'School Attendance Challenges and Chronic Absenteeism Recommendations',
   'survey/references.md': 'References for Survey Reports',
   'survey/interactive-report.md': 'Full Interactive Report Visuals',
   'survey/participate.md': 'Participate in the Survey'

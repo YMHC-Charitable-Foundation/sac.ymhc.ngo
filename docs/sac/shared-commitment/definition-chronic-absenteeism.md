@@ -17,11 +17,13 @@ School attendance challenges can be seen as the ‘canary in the coal mine’.) 
 
 ## The Good News
 
-The good news is that based on over thirty years in this field, I know what works. 
+The encouraging news is that, based on more than thirty years of experience working in this field, we know that effective solutions exist.
 
-In the nineties, we used a “Stay-in-School”community care campaign with government and corporate funding to bring guest speakers, including professional athletes,  into schools, run commercials on the importance of education, and bring students into the community to see practical applications for what they were learning and make education more relevant and meaningful.
+In the 1990s, a community-based initiative known as the "Stay-in-School" campaign demonstrated the power of collaborative action. Supported by government and corporate funding, the campaign brought guest speakers---including professional athletes---into schools, aired public service messages highlighting the importance of education, and connected students with community experiences that showed the real-world applications of what they were learning. These efforts helped make education more relevant, engaging, and meaningful for young people.
 
-What works is shared responsibility for education. School-wide strategies with school community involvement and engagement and multi-tiered student support systems are data-driven, evidence-based, comprehensive approaches for prevention, early intervention, and needs-based measures.
+One of the key lessons from this work is that education succeeds when it is a shared responsibility. Effective responses to school attendance challenges require school-wide strategies that actively involve the entire school community---educators, families, students, and community partners.
+
+Comprehensive approaches that incorporate multi-tiered systems of support provide the strongest framework for helping students succeed. These systems are data-informed and evidence-based, combining prevention strategies, early identification and intervention, and individualized, needs-based supports to ensure that all students can access and benefit from their education.
 
 ## References 
 
