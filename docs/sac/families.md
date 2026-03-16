@@ -26,6 +26,8 @@ Use this interactive checklist to identify potential barriers to your child's ed
 
 <Link className="button button--primary button--lg" to="pathname:///checklists/barriers-to-education-checklist.html" target="_blank">Open Checklist</Link>
 
+### Student Experiences of School Checklist
+
 <!-- TODO: add checklist "Student Experiences of School Checklist" from docs/sac/shared-commitment/student-lived-experience.md 
 -->
 
