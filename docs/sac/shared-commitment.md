@@ -5,12 +5,15 @@ title: 'Shared Commitment to Change'
 
 # Shared Commitment to Change
 
+<!-- TODO: turn into a table, w 3 imgs -->
+
+![](/img/sac/ramp.jpg)
 
 > Adequate special education is not a dispensable luxury. It is the ramp that provides access to the statutory commitment to education made to all children.
 >
 > — **Supreme Court of Canada, Moore vs BC**
 
- 
+<!-- TODO: img for classrom w teacher https://unsplash.com/photos/man-and-woman-sitting-on-chairs-zFSo6bnZJTw -->
 
 > From my many years working with children and families, I believe strongly that the most important element of an inclusive educational setting is the attitude of the teachers and the staff at a school. It is the best, because it is free, it can be implemented tomorrow and it can make a huge, life-long difference in children's lives. Everyone can do it.
 >
@@ -18,7 +21,7 @@ title: 'Shared Commitment to Change'
 >
 > — **Dr. Natalie Thompson, Lecturer in Education, Charles Sturt University** 
 
- 
+<!-- TODO: img for teamwork w hands https://unsplash.com/photos/person-wearing-silver-ring-and-white-long-sleeve-shirt-UdDjFekHQuk -->
 
 > When adults work in partnership \- listening openly, sharing insights, and respecting each other's role in a young person's life \- we create the conditions for a truly supportive school-home relationship. And at the centre of that relationship is the child, who benefits most when the adults around them are united, collaborative, and grounded in care.
 >

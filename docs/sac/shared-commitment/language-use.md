@@ -17,4 +17,6 @@ Under the umbrella term of “school attendance challenges” exist many variati
 
 Readiness to learn is the barometer of effective education. Using Maslow’s Hierarchy of Needs, we focus on the conditions students need—safety, belonging, and well-being—before meaningful learning can take place.
 
+<!-- TODO: improve img -->
+
 ![](/img/sac/maslows-hierarchy-edu.png)

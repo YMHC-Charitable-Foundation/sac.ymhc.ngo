@@ -11,11 +11,11 @@ MTSS is a framework for educational support that addresses a student's academic,
 
 MTSS is commonly visualized as three tiers, however students may move between tiers depending on their needs. Flexibility is key in integrating MTSS into a whole-school approach. Flexibility is not linear, but rather a fluid continuum of needs-responsive support. 
 
-Tier 1 focuses on universal student support and mental wellness promotion across the whole school.
+- **Tier 1** focuses on universal student support and mental wellness promotion across the whole school.
 
-Tier 2 provides early, targeted intervention for students showing emerging or persistent challenges.
+- **Tier 2** provides early, targeted intervention for students showing emerging or persistent challenges.
 
-Tier 3 involves individualized, intensive support for students experiencing significant or ongoing barriers to accessing education.
+- **Tier 3** involves individualized, intensive support for students experiencing significant or ongoing barriers to accessing education.
 
 The Multi-Tiered System of Support requires the collaboration and coordinated efforts of the school community in providing appropriate programs, settings, supports, and services.
 
