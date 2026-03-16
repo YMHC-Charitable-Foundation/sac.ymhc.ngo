@@ -1,7 +1,7 @@
- - 
+---
 sidebar_label: 'The Definition of Chronic School Absenteeism'
 title: 'The Definition of Chronic School Absenteeism'
- - 
+---
 
 # The Definition of Chronic School Absenteeism
 

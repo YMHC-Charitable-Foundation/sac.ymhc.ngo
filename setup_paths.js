@@ -28,9 +28,7 @@ const files = [
   'survey/punitive-approaches.md',
   'survey/needs-based-approach.md',
   'survey/conclusion.md',
-  'survey/references.md',
-  'survey/interactive-report.md',
-  'survey/participate.md'
+  'survey/references.md'
 ];
 
 const fileTitles = {
@@ -58,9 +56,7 @@ const fileTitles = {
   'survey/punitive-approaches.md': 'Punitive Approaches and Experience of Educational Exclusion',
   'survey/needs-based-approach.md': 'A Needs-Based Approach',
   'survey/conclusion.md': 'Conclusion',
-  'survey/references.md': 'References for Survey Reports',
-  'survey/interactive-report.md': 'Full Interactive Report Visuals',
-  'survey/participate.md': 'Participate in the Survey'
+  'survey/references.md': 'References for Survey Reports'
 };
 
 files.forEach(file => {

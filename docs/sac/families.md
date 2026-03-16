@@ -34,9 +34,8 @@ Use this interactive checklist to understand a student's lived experiences of sc
 
 ## Next steps
 
-<!-- TODO: add links to resources -->
-* **Get educated**: resources – Tier 1 (wellness workbooks and booklets), Tier 2 and 3 (early intervention and targeted support): guidebook, student workbook, and handbook  
-* **Take the online courses** (YWAP and SAC: Tiers 1 to 3 support)  
+* **Get educated**: resources – [Tier 1 (wellness workbooks and booklets)](./resources-training/tier-1.md), [Tier 2 and 3 (early intervention and targeted support): guidebook, student workbook, and handbook](./resources-training/tier-2-3.md)  
+* **Take the [online courses](./resources-training/online-courses.md)** (YWAP and SAC: Tiers 1 to 3 support)  
 * **Become your child’s Advocate**: Go to your child’s school, make an appointment with the principal, and ask for an Education Support Team.   
 * **Provide documentation**: Psychological-Educational Assessment, warning signs and barriers checklists  
 * **Ask for accommodations and an action plan**

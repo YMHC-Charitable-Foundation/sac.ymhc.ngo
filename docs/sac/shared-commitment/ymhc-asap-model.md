@@ -5,7 +5,7 @@ title: 'YMHC ASAP Model'
 
 # YMHC ASAP Model
 
-<!-- TOOD: img for ASAP -->
+![](/img/sac/asap-model.jpg)
 
 ## What is the YMHC ASAP model for School Attendance Challenges?
 
