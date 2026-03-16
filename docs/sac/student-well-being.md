@@ -5,7 +5,9 @@ title: 'Student Well-Being'
 
 # Student Well-Being
 
-<!-- TODO: add images from WA -->
+| What is Mental Wellness | Protective Factors |
+| :---: | :---: |
+| ![What is Mental Wellness](/img/sac/what-is-mental-wellness.jpeg) | ![Protective Factors](/img/sac/protective-factors.jpeg) |
 
 ## Why Student Well-Being Matters
 Student well-being is fundamental to the ability of young people to access, participate in, and successfully manage education in Canada. When students’ mental, emotional, and social needs are not supported, their capacity to learn, attend school, and achieve their potential is significantly affected. The relationship between well-being and education is increasingly recognized as a central issue in Canadian education systems.
