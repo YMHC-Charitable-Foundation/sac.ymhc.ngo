@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Experiences of School Checklist</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f7fa;
+      color: #1a2236;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a4a8a 0%, #2563c4 100%);
+      color: #fff;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    header .org { font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 6px; }
+    header .subtitle { font-size: 0.95rem; opacity: 0.85; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .toolbar button {
+      padding: 7px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .toolbar button:active { transform: scale(0.97); }
+    .btn-clear { background: #f1f5f9; color: #475569; }
+    .btn-clear:hover { background: #e2e8f0; }
+    .btn-print { background: #1a4a8a; color: #fff; }
+    .btn-print:hover { background: #163d73; }
+    .progress-wrap { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #475569; }
+    .progress-bar-outer { width: 160px; height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .progress-bar-inner { height: 100%; background: linear-gradient(90deg, #2563c4, #22c55e); border-radius: 99px; transition: width 0.3s; }
+    #progress-label { font-weight: 600; color: #1a4a8a; min-width: 60px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+
+    .instructions {
+      background: #eff6ff;
+      border-left: 4px solid #2563c4;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 0.93rem;
+      color: #1e3a5f;
+    }
+    .instructions strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header .icon { font-size: 1.15rem; }
+    .section-header .count {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.35);
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+    .section-header .chevron { font-size: 0.8rem; transition: transform 0.2s; opacity: 0.7; }
+    .section-header.collapsed .chevron { transform: rotate(-90deg); }
+
+    /* Section color theming */
+    .sec-overwhelmed .section-header { background: #fdf4ff; color: #6b21a8; }
+    .sec-overwhelmed .section-header .count { background: #e9d5ff; }
+    .sec-stress  .section-header { background: #fff7ed; color: #c2410c; }
+    .sec-stress  .section-header .count { background: #fed7aa; }
+    .sec-academic .section-header { background: #f0fdf4; color: #166534; }
+    .sec-academic .section-header .count { background: #bbf7d0; }
+    .sec-bullying    .section-header { background: #eff6ff; color: #1d4ed8; }
+    .sec-bullying    .section-header .count { background: #bfdbfe; }
+    .sec-belonging .section-header { background: #fefce8; color: #854d0e; }
+    .sec-belonging .section-header .count { background: #fef08a; }
+    .sec-mental .section-header { background: #f0fdfa; color: #0f766e; }
+    .sec-mental .section-header .count { background: #99f6e4; }
+    .sec-sensory     .section-header { background: #fff1f2; color: #be123c; }
+    .sec-sensory     .section-header .count { background: #fecdd3; }
+    .sec-family  .section-header { background: #f8fafc; color: #334155; }
+    .sec-family  .section-header .count { background: #e2e8f0; }
+    .sec-misunderstood .section-header { background: #faf5ff; color: #7e22ce; }
+    .sec-misunderstood .section-header .count { background: #f3e8ff; }
+    .sec-hope .section-header { background: #fef2f2; color: #b91c1c; }
+    .sec-hope .section-header .count { background: #fecaca; }
+
+    .section-body { padding: 6px 0 10px; }
+    .section-note { padding: 4px 20px 10px; font-size: 0.85rem; color: #64748b; font-style: italic; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+    .item:hover { background: #f8fafc; }
+    .item.checked { background: #f0fdf4; }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #2563c4;
+      cursor: pointer;
+    }
+    .item label {
+      font-size: 0.93rem;
+      cursor: pointer;
+      flex: 1;
+    }
+    .item.checked label { color: #15803d; }
+
+    @media print {
+      body { background: #fff; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toolbar { display: none; }
+      .section-body { display: block !important; }
+      .item.checked { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="org">Youth Mental Health Canada</div>
+  <h1>Student Experiences of School Checklist</h1>
+  <div class="subtitle">School Attendance Challenges &nbsp;·&nbsp; For Families and Schools</div>
+</header>
+
+<div class="toolbar">
+  <div class="progress-wrap">
+    <span>Checks:</span>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar" style="width:0%"></div></div>
+    <span id="progress-label">0 / 0</span>
+  </div>
+  <button class="btn-clear" onclick="clearAll()">Clear All</button>
+  <button class="btn-print" onclick="window.print()">🖨 Print</button>
+</div>
+
+<div class="container">
+
+  <div class="instructions">
+    <strong>Instructions</strong>
+    This checklist helps identify the specific ways a student might be experiencing challenges at school. Understanding their lived experience can support timely intervention and prevent further disengagement.
+    <br><br>Review the checklist and mark any experiences that the student has expressed or demonstrated.
+  </div>
+
+  <div class="section sec-overwhelmed">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💜</span> Feeling overwhelmed or anxious
+      <span class="count" id="cnt-overwhelmed">0 / 5</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“School makes me feel really anxious, especially in the morning.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“When I think about going to school, my stomach hurts and I feel panicked.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I get overwhelmed by everything that’s expected of me.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I worry about failing or doing something wrong in class.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Sometimes my anxiety is so strong that I just can’t get out the door.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-stress">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧡</span> Difficulty managing stress and emotions
+      <span class="count" id="cnt-stress">0 / 4</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“When I’m stressed, it’s hard for me to focus on school.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“My emotions get really intense and I don’t know how to handle them.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel exhausted all the time and school feels like too much.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel like I’m barely keeping up and it’s overwhelming.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-academic">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💚</span> Academic challenges
+      <span class="count" id="cnt-academic">0 / 5</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I don’t understand the work and I feel embarrassed asking for help.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel like I’m always behind everyone else.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“When assignments pile up, I don’t know where to start.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Sometimes I just stare at the work and my mind goes blank.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel like the school system isn’t built for the way my brain works.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-bullying">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💙</span> Bullying or peer difficulties
+      <span class="count" id="cnt-bullying">0 / 5</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I don’t feel safe around some of the other students.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I get bullied and it makes me not want to go to school.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel like I don’t belong at school.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I’m scared people will judge or laugh at me.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“It’s hard to go somewhere every day where you feel left out.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-belonging">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💛</span> Lack of belonging or connection
+      <span class="count" id="cnt-belonging">0 / 5</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel invisible at school.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I don’t feel like anyone notices when I’m struggling.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I wish there was an adult at school I could talk to.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“School doesn’t feel like a place where I belong.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel like nobody understands what I’m going through.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-mental">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">📅</span> Mental health struggles
+      <span class="count" id="cnt-mental">0 / 4</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Some days my mental health makes it hard just to get out of bed.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I feel really depressed and school feels pointless.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“My brain feels foggy and it’s hard to concentrate.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“When I’m having a bad mental health day, everything at school feels impossible.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-sensory">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🗣</span> Sensory or environmental challenges
+      <span class="count" id="cnt-sensory">0 / 4</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“The noise and crowds at school are overwhelming for me.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Classrooms can feel chaotic and it’s hard for me to focus.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Transitions between classes are stressful.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Being around so many people drains my energy.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-family">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🏡</span> Family or life stress
+      <span class="count" id="cnt-family">0 / 3</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“There’s a lot going on at home and it’s hard to focus on school.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Sometimes I have responsibilities at home that make school harder.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I’m dealing with things in my life that make it hard to concentrate.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-misunderstood">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🤔</span> Feeling misunderstood or unsupported
+      <span class="count" id="cnt-misunderstood">0 / 4</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“People think I’m lazy, but I’m actually struggling.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“When teachers say I’m not trying, it makes me feel worse.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I want to succeed, but I need support.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“Sometimes it feels like the system is blaming me instead of helping me.”</label></div>
+    </div>
+  </div>
+
+  <div class="section sec-hope">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🌟</span> Hope and desire to succeed
+      <span class="count" id="cnt-hope">0 / 4</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I actually want to be at school, but it’s really hard.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I wish school worked differently for students like me.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“If I had the right support, I think I could do better.”</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>“I want to learn, I just need help managing everything.”</label></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const sectionMap = {
+    'cnt-overwhelmed':  '.sec-overwhelmed',
+    'cnt-stress':   '.sec-stress',
+    'cnt-academic': '.sec-academic',
+    'cnt-bullying':     '.sec-bullying',
+    'cnt-belonging':  '.sec-belonging',
+    'cnt-mental': '.sec-mental',
+    'cnt-sensory':      '.sec-sensory',
+    'cnt-family': '.sec-family',
+    'cnt-misunderstood': '.sec-misunderstood',
+    'cnt-hope': '.sec-hope'
+  };
+
+  function toggle(itemEl) {
+    const cb = itemEl.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    itemEl.classList.toggle('checked', cb.checked);
+    updateProgress();
+  }
+
+  function toggleSection(headerEl) {
+    const body = headerEl.nextElementSibling;
+    const collapsed = body.style.display === 'none';
+    body.style.display = collapsed ? '' : 'none';
+    headerEl.classList.toggle('collapsed', !collapsed);
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.item input[type="checkbox"]');
+    const checked = document.querySelectorAll('.item input[type="checkbox"]:checked');
+    const bar = document.getElementById('progress-bar');
+    const label = document.getElementById('progress-label');
+    const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+    bar.style.width = pct + '%';
+    label.textContent = checked.length + ' / ' + all.length;
+
+    // Update per-section counts
+    for (const [countId, selector] of Object.entries(sectionMap)) {
+      const section = document.querySelector(selector);
+      const secAll = section.querySelectorAll('.item input[type="checkbox"]');
+      const secChecked = section.querySelectorAll('.item input[type="checkbox"]:checked');
+      document.getElementById(countId).textContent = secChecked.length + ' / ' + secAll.length;
+    }
+  }
+
+  function clearAll() {
+    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+      cb.checked = false;
+      cb.closest('.item').classList.remove('checked');
+    });
+    updateProgress();
+  }
+
+  // Init progress on load
+  updateProgress();
+</script>
+</body>
+</html>

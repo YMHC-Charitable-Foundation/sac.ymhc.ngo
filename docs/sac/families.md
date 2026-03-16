@@ -28,8 +28,9 @@ Use this interactive checklist to identify potential barriers to your child's ed
 
 ### Student Experiences of School Checklist
 
-<!-- TODO: add checklist "Student Experiences of School Checklist" from docs/sac/shared-commitment/student-lived-experience.md 
--->
+Use this interactive checklist to understand a student's lived experiences of school.
+
+<Link className="button button--primary button--lg" to="pathname:///checklists/student-experiences-of-school-checklist.html" target="_blank">Open Checklist</Link>
 
 ## Next steps
 
