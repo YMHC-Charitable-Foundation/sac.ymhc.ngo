@@ -252,7 +252,7 @@ const config = {
             position: 'left',
             label: 'National Survey',
           },
-          { to: '/stories', label: 'Story Wall', position: 'left' },
+          // { to: '/stories', label: 'Story Wall', position: 'left' },
           {
             href: 'https://ymhc.ngo/',
             label: 'ymhc.ngo',
