@@ -34,6 +34,7 @@ const sidebars = {
     'sac/story-wall',
     'sac/shared-commitment/research',
     'sac/about',
+    'sac/credits',
     'sac/contact',
   ],
   surveySidebar: [

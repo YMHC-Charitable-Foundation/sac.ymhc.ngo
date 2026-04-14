@@ -72,6 +72,9 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          ignorePatterns: ['/credits/**', '/docs/sac/credits/**'],
+        },
       }),
     ],
   ],
@@ -83,6 +86,7 @@ const config = {
       {
         redirects: [
           { from: '/about/', to: '/docs/sac/about' },
+          { from: '/credits/', to: '/docs/sac/credits' },
           { from: '/contact/', to: '/docs/sac/contact' },
           { from: '/survey/', to: '/docs/sac/national-survey' },
           { from: '/training/', to: '/docs/sac/resources-training' },
