@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Difficultes d'assiduite scolaire",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "YMHC Site Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.SAC Resources": {
+    "message": "Ressources SAC",
+    "description": "Navbar item with label SAC Resources"
+  },
+  "item.label.National Survey": {
+    "message": "Enquete nationale",
+    "description": "Navbar item with label National Survey"
+  },
+  "item.label.Story Wall": {
+    "message": "Mur des temoignages",
+    "description": "Navbar item with label Story Wall"
+  },
+  "item.label.ymhc.ngo": {
+    "message": "ymhc.ngo",
+    "description": "Navbar item with label ymhc.ngo"
+  }
+}

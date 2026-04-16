@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liste de verification des signes precurseurs - Difficultes d'assiduite scolaire</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f7fa;
+      color: #1a2236;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a4a8a 0%, #2563c4 100%);
+      color: #fff;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    header .org { font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 6px; }
+    header .subtitle { font-size: 0.95rem; opacity: 0.85; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .toolbar button {
+      padding: 7px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .toolbar button:active { transform: scale(0.97); }
+    .btn-clear { background: #f1f5f9; color: #475569; }
+    .btn-clear:hover { background: #e2e8f0; }
+    .btn-print { background: #1a4a8a; color: #fff; }
+    .btn-print:hover { background: #163d73; }
+    .progress-wrap { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #475569; }
+    .progress-bar-outer { width: 160px; height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .progress-bar-inner { height: 100%; background: linear-gradient(90deg, #2563c4, #22c55e); border-radius: 99px; transition: width 0.3s; }
+    #progress-label { font-weight: 600; color: #1a4a8a; min-width: 60px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+
+    .instructions {
+      background: #eff6ff;
+      border-left: 4px solid #2563c4;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 0.93rem;
+      color: #1e3a5f;
+    }
+    .instructions strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header .icon { font-size: 1.15rem; }
+    .section-header .count {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.35);
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+    .section-header .chevron { font-size: 0.8rem; transition: transform 0.2s; opacity: 0.7; }
+    .section-header.collapsed .chevron { transform: rotate(-90deg); }
+
+    /* Section color theming */
+    .sec-emotional .section-header { background: #fdf4ff; color: #6b21a8; }
+    .sec-emotional .section-header .count { background: #e9d5ff; }
+    .sec-physical  .section-header { background: #fff7ed; color: #c2410c; }
+    .sec-physical  .section-header .count { background: #fed7aa; }
+    .sec-behavioral .section-header { background: #f0fdf4; color: #166534; }
+    .sec-behavioral .section-header .count { background: #bbf7d0; }
+    .sec-social    .section-header { background: #eff6ff; color: #1d4ed8; }
+    .sec-social    .section-header .count { background: #bfdbfe; }
+    .sec-cognitive .section-header { background: #fefce8; color: #854d0e; }
+    .sec-cognitive .section-header .count { background: #fef08a; }
+    .sec-attendance .section-header { background: #f0fdfa; color: #0f766e; }
+    .sec-attendance .section-header .count { background: #99f6e4; }
+    .sec-voice     .section-header { background: #fff1f2; color: #be123c; }
+    .sec-voice     .section-header .count { background: #fecdd3; }
+
+    .section-body { padding: 6px 0 10px; }
+    .section-note { padding: 4px 20px 10px; font-size: 0.85rem; color: #64748b; font-style: italic; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+    .item:hover { background: #f8fafc; }
+    .item.checked { background: #f0fdf4; }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #2563c4;
+      cursor: pointer;
+    }
+    .item label {
+      font-size: 0.93rem;
+      cursor: pointer;
+      flex: 1;
+    }
+    .item.checked label { color: #15803d; }
+
+    @media print {
+      body { background: #fff; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toolbar { display: none; }
+      .section-body { display: block !important; }
+      .item.checked { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="org">Sante mentale des jeunes Canada</div>
+  <h1>Liste de verification des signes precurseurs</h1>
+  <div class="subtitle">Difficultes d'assiduite scolaire &nbsp;&middot;&nbsp; Pour les familles et les ecoles</div>
+</header>
+
+<div class="toolbar">
+  <div class="progress-wrap">
+    <span>Elements coches :</span>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar" style="width:0%"></div></div>
+    <span id="progress-label">0 / 0</span>
+  </div>
+  <button class="btn-clear" onclick="clearAll()">Tout effacer</button>
+  <button class="btn-print" onclick="window.print()">🖨 Print</button>
+</div>
+
+<div class="container">
+
+  <div class="instructions">
+    <strong>Consignes</strong>
+    Cette liste aide a reperer les signes precurseurs montrant qu'un eleve peut vivre des difficultes a frequenter l'ecole. Les difficultes d'assiduite scolaire sont souvent liees a des obstacles emotionnels, sociaux, de sante ou d'apprentissage. Le reperage precoce de ces signes peut favoriser une intervention rapide et prevenir un desengagement plus important.
+    <br><br>Parcourez la liste et cochez les signes observes.
+  </div>
+
+  <!-- Signes emotionnels -->
+  <div class="section sec-emotional">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💜</span> Signes emotionnels
+      <span class="count" id="cnt-emotional">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Anxiete frequente a l'idee d'aller a l'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Panique ou detresse lorsque l'on parle de frequentation scolaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Preoccupation excessive concernant le rendement scolaire ou les situations sociales</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Irritabilite ou variations d'humeur liees aux jours d'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiments de tristesse, de decouragement ou faible motivation</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sensibilite emotionnelle accrue ou frustration</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Peur d'etre humilie, d'echouer ou d'etre juge a l'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Retrait d'activites auparavant appreciees</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Manifestations d'un sentiment d'etre depasse par les exigences scolaires</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Faible estime de soi ou discours negatif sur ses capacites</label></div>
+    </div>
+  </div>
+
+  <!-- Signes physiques -->
+  <div class="section sec-physical">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧡</span> Signes physiques
+      <span class="count" id="cnt-physical">0 / 9</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Maux de tete, maux de ventre ou nausees frequents les matins d'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Plaintes liees a une maladie qui s'attenuent en restant a la maison</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Fatigue ou manque d'energie, surtout avant l'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a dormir ou sommeil perturbe</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Changements d'appetit</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Tension physique, agitation ou tremblements lors de la preparation pour l'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Demandes accrues de rentrer a la maison</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Epuisement physique apres la frequentation scolaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Symptomes psychosomatiques lies au stress scolaire</label></div>
+    </div>
+  </div>
+
+  <!-- Signes comportementaux -->
+  <div class="section sec-behavioral">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💚</span> Signes comportementaux
+      <span class="count" id="cnt-behavioral">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Retards frequents ou difficulte a arriver a l'ecole a l'heure</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absences accrues ou demandes de rester a la maison</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Depart precoce de l'ecole ou visites frequentes au bureau</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Evitement de certains cours, enseignants ou lieux a l'ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Incapacite a aller a l'ecole ou difficulte a quitter la maison</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Diminution de la participation aux activites scolaires</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Augmentation des debordements emotionnels avant l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Resistance a parler de sujets lies a l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Procrastination ou evitement des devoirs et travaux</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Dependance accrue envers les parents pour rester a la maison ou quitter l ecole</label></div>
+    </div>
+  </div>
+
+  <!-- Signes sociaux -->
+  <div class="section sec-social">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💙</span> Signes sociaux
+      <span class="count" id="cnt-social">0 / 9</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Retrait des amis ou des groupes de pairs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Evitement des interactions sociales a l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a creer ou maintenir des amities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Signalements d intimidation ou de conflit avec les pairs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiment d exclusion ou d isolement par rapport aux pairs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Reticence a participer aux activites de groupe</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence de sentiment d appartenance a l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Temps passe seul accru pendant les pauses ou le diner</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Conflits avec les pairs ou anxiete sociale en contexte scolaire</label></div>
+    </div>
+  </div>
+
+  <!-- Signes cognitifs -->
+  <div class="section sec-cognitive">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💛</span> Signes cognitifs
+      <span class="count" id="cnt-cognitive">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a se concentrer en classe</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a se souvenir des consignes ou a terminer les taches</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Pensees negatives au sujet de l ecole ("Je n y arriverai pas", "Je vais echouer")</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Pensees catastrophiques a propos des situations scolaires</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Inquietude persistante face aux attentes scolaires</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiment d etre depasse par les travaux ou la charge de travail</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a prendre des decisions concernant les taches scolaires</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Baisse de motivation envers le travail scolaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Baisse du rendement scolaire ou travaux incomplets</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Blocage mental face aux exigences scolaires</label></div>
+    </div>
+  </div>
+
+  <!-- Indicateurs d'assiduite -->
+  <div class="section sec-attendance">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">📅</span> Indicateurs d'assiduite
+      <span class="count" id="cnt-attendance">0 / 5</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Hausse progressive des absences</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Retards chroniques ou cours manques</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Presence partielle ou departs frequents avant la fin</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Evitement de certains jours (examens, presentations, cours particuliers)</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Desengagement progressif des routines scolaires</label></div>
+    </div>
+  </div>
+
+  <!-- Student Voice -->
+  <div class="section sec-voice">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🗣</span> Indicateurs lies a la parole de l'eleve
+      <span class="count" id="cnt-voice">0 / 6</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="section-note">Les eleves peuvent dire des choses comme :</div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"L ecole me rend tres anxieux ou anxieuse."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"Je me sens depasse ou depassee quand je pense a aller a l ecole."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"Je n ai pas l impression d y avoir ma place."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"Je m inquiete de ce que les autres pensent de moi."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"Je me sens en retard et je ne sais pas comment rattraper."</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>"Parfois, y aller me semble impossible."</label></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const sectionMap = {
+    'cnt-emotional':  '.sec-emotional',
+    'cnt-physical':   '.sec-physical',
+    'cnt-behavioral': '.sec-behavioral',
+    'cnt-social':     '.sec-social',
+    'cnt-cognitive':  '.sec-cognitive',
+    'cnt-attendance': '.sec-attendance',
+    'cnt-voice':      '.sec-voice',
+  };
+
+  function toggle(itemEl) {
+    const cb = itemEl.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    itemEl.classList.toggle('checked', cb.checked);
+    updateProgress();
+  }
+
+  function toggleSection(headerEl) {
+    const body = headerEl.nextElementSibling;
+    const collapsed = body.style.display === 'none';
+    body.style.display = collapsed ? '' : 'none';
+    headerEl.classList.toggle('collapsed', !collapsed);
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.item input[type="checkbox"]');
+    const checked = document.querySelectorAll('.item input[type="checkbox"]:checked');
+    const bar = document.getElementById('progress-bar');
+    const label = document.getElementById('progress-label');
+    const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+    bar.style.width = pct + '%';
+    label.textContent = checked.length + ' / ' + all.length;
+
+    // Update per-section counts
+    for (const [countId, selector] of Object.entries(sectionMap)) {
+      const section = document.querySelector(selector);
+      const secAll = section.querySelectorAll('.item input[type="checkbox"]');
+      const secChecked = section.querySelectorAll('.item input[type="checkbox"]:checked');
+      document.getElementById(countId).textContent = secChecked.length + ' / ' + secAll.length;
+    }
+  }
+
+  function clearAll() {
+    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+      cb.checked = false;
+      cb.closest('.item').classList.remove('checked');
+    });
+    updateProgress();
+  }
+
+  // Init progress on load
+  updateProgress();
+</script>
+</body>
+</html>

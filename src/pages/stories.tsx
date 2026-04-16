@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Layout from '@theme/Layout';
-import Papa from 'papaparse';
 import clsx from 'clsx';
+import Papa from 'papaparse';
+import {translate} from '@docusaurus/Translate';
+import Layout from '@theme/Layout';
 import styles from './stories.module.css';
 
 export default function Stories() {
@@ -17,7 +18,6 @@ export default function Stories() {
           header: true,
           skipEmptyLines: true,
           complete: (results) => {
-            // Shuffle the stories
             const shuffled = results.data.sort(() => 0.5 - Math.random());
             setStories(shuffled);
             setLoading(false);
@@ -25,13 +25,12 @@ export default function Stories() {
         });
       })
       .catch((err) => {
-        console.error("Error loading stories:", err);
+        console.error('Error loading stories:', err);
         setLoading(false);
       });
   }, []);
 
-  // Determine an elegant preview length
-  const MAX_PREVIEW_LENGTH = 180;
+  const maxPreviewLength = 180;
 
   const getBadgeClass = (category: string) => {
     if (!category) return styles.badgeOther;
@@ -44,30 +43,52 @@ export default function Stories() {
 
   return (
     <Layout
-      title="Story Wall"
-      description="Read real stories from students and families experiencing school attendance challenges">
+      title={translate({
+        id: 'stories.metaTitle',
+        description: 'Story Wall page HTML title',
+        message: 'Story Wall',
+      })}
+      description={translate({
+        id: 'stories.metaDescription',
+        description: 'Story Wall page meta description',
+        message: 'Read real stories from students and families experiencing school attendance challenges',
+      })}>
       <main className={styles.mainContainer}>
         <div className="container padding-vert--xl">
           <div className="text--center margin-bottom--xl">
-            <h1 className={styles.heroTitle}>Story Wall</h1>
+            <h1 className={styles.heroTitle}>
+              {translate({
+                id: 'stories.heroTitle',
+                description: 'Story Wall page heading',
+                message: 'Story Wall',
+              })}
+            </h1>
             <p className={styles.heroSubtitle}>
-              Real experiences shared by students and their families navigating school attendance challenges.
+              {translate({
+                id: 'stories.heroSubtitle',
+                description: 'Story Wall page subtitle',
+                message: 'Real experiences shared by students and their families navigating school attendance challenges.',
+              })}
             </p>
           </div>
 
           {loading ? (
-            <div className={styles.loader}>Loading stories...</div>
+            <div className={styles.loader}>
+              {translate({
+                id: 'stories.loading',
+                description: 'Loading label shown while stories are fetched',
+                message: 'Loading stories...',
+              })}
+            </div>
           ) : (
             <div className={styles.masonryGrid}>
               {stories.map((story, idx) => {
                 if (!story.Content || !story.Content.trim()) return null;
-                const isLong = story.Content.length > MAX_PREVIEW_LENGTH;
+                const isLong = story.Content.length > maxPreviewLength;
                 const previewText = isLong
-                  ? story.Content.substring(0, MAX_PREVIEW_LENGTH) + '...'
+                  ? `${story.Content.substring(0, maxPreviewLength)}...`
                   : story.Content;
-
-                // Color assignation based on ID (to be stable but random-looking)
-                const hue = ((parseInt(story.id) || idx) * 137.508) % 360;
+                const hue = ((parseInt(story.id, 10) || idx) * 137.508) % 360;
 
                 return (
                   <div
@@ -91,7 +112,11 @@ export default function Stories() {
                     </div>
                     {isLong && (
                       <div className={styles.readMore}>
-                        Read full story →
+                        {translate({
+                          id: 'stories.readFullStory',
+                          description: 'Call to action shown on story cards with a truncated preview',
+                          message: 'Read full story ->',
+                        })}
                       </div>
                     )}
                   </div>
@@ -102,14 +127,17 @@ export default function Stories() {
         </div>
       </main>
 
-      {/* Modal for full story */}
       {selectedStory && (
         <div className={styles.modalOverlay} onClick={() => setSelectedStory(null)}>
-          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button
               className={styles.closeButton}
               onClick={() => setSelectedStory(null)}
-              aria-label="Close modal"
+              aria-label={translate({
+                id: 'stories.closeModal',
+                description: 'Accessible label for the Story Wall modal close button',
+                message: 'Close modal',
+              })}
             >
               &times;
             </button>
@@ -122,7 +150,6 @@ export default function Stories() {
               </div>
             )}
             <div className={styles.modalBody}>
-              {/* Split by newlines to render paragraphs */}
               {selectedStory.Content.split('\n').map((paragraph, i) => (
                 paragraph.trim() && <p key={i}>"{paragraph.trim()}"</p>
               ))}

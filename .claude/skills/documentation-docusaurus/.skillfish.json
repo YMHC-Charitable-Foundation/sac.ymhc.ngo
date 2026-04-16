@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "documentation-docusaurus",
+  "owner": "leaderiop",
+  "repo": "hex-di",
+  "path": ".claude/skills/documentation-docusaurus",
+  "branch": "main",
+  "sha": "5e1da4c06552af7c3b916d2f974495e1d0748f1e",
+  "source": "manual"
+}

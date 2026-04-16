@@ -1,0 +1,54 @@
+{
+  "link.title.Docs": {
+    "message": "Documentation",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Youth Mental Health Canada": {
+    "message": "Sante mentale des jeunes Canada (YMHC)",
+    "description": "The title of the footer links column with title=Youth Mental Health Canada in the footer"
+  },
+  "link.title.Policies & Contact": {
+    "message": "Politiques et contact",
+    "description": "The title of the footer links column with title=Policies & Contact in the footer"
+  },
+  "link.item.label.SAC Resources": {
+    "message": "Ressources SAC",
+    "description": "The label of footer link with label=SAC Resources linking to /docs/sac/shared-commitment"
+  },
+  "link.item.label.National Survey": {
+    "message": "Enquete nationale",
+    "description": "The label of footer link with label=National Survey linking to /docs/survey/introduction"
+  },
+  "link.item.label.Story Wall": {
+    "message": "Mur des temoignages",
+    "description": "The label of footer link with label=Story Wall linking to /stories"
+  },
+  "link.item.label.YMHC home": {
+    "message": "Accueil YMHC",
+    "description": "The label of footer link with label=YMHC home linking to https://ymhc.ngo/"
+  },
+  "link.item.label.Follow us": {
+    "message": "Suivez-nous",
+    "description": "The label of footer link with label=Follow us linking to https://linktr.ee/ymhc"
+  },
+  "link.item.label.Land Acknowledgement and Commitment": {
+    "message": "Reconnaissance territoriale et engagement",
+    "description": "The label of footer link with label=Land Acknowledgement and Commitment linking to /land-acknowledgement"
+  },
+  "link.item.label.Terms of service": {
+    "message": "Conditions d'utilisation",
+    "description": "The label of footer link with label=Terms of service linking to https://ymhc.ngo/policies/terms-of-service"
+  },
+  "link.item.label.Privacy policy": {
+    "message": "Politique de confidentialite",
+    "description": "The label of footer link with label=Privacy policy linking to https://ymhc.ngo/policies/privacy-policy"
+  },
+  "link.item.label.Contact information": {
+    "message": "Coordonnees",
+    "description": "The label of footer link with label=Contact information linking to https://ymhc.ngo/policies/contact-information"
+  },
+  "copyright": {
+    "message": "Copyright (c) 2026 Sante mentale des jeunes Canada.<br/><small>La version francaise du site est fournie a titre indicatif grace a un service de traduction tiers. Pour l'information la plus exacte et a jour, veuillez consulter la version anglaise du site. Cette traduction peut contenir des incoherences ou des erreurs. N'hesitez pas a nous les signaler et a contribuer a son amelioration.</small>",
+    "description": "The footer copyright"
+  }
+}

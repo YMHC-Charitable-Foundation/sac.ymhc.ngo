@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Actuel",
+    "description": "The label for version current"
+  },
+  "sidebar.sacSidebar.category.Shared Commitment to Change": {
+    "message": "Engagement commun envers le changement",
+    "description": "The label for category 'Shared Commitment to Change' in sidebar 'sacSidebar'"
+  },
+  "sidebar.sacSidebar.category.Resources & Training": {
+    "message": "Ressources et formation",
+    "description": "The label for category 'Resources & Training' in sidebar 'sacSidebar'"
+  }
+}

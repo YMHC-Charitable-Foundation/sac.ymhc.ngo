@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liste de verification des obstacles a l'education - Difficultes d'assiduite scolaire</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f7fa;
+      color: #1a2236;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+      color: #fff;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    header .org { font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 6px; }
+    header .subtitle { font-size: 0.95rem; opacity: 0.85; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .toolbar button {
+      padding: 7px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .toolbar button:active { transform: scale(0.97); }
+    .btn-clear { background: #f1f5f9; color: #475569; }
+    .btn-clear:hover { background: #e2e8f0; }
+    .btn-print { background: #0f766e; color: #fff; }
+    .btn-print:hover { background: #0d6460; }
+    .progress-wrap { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #475569; }
+    .progress-bar-outer { width: 160px; height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .progress-bar-inner { height: 100%; background: linear-gradient(90deg, #0d9488, #22c55e); border-radius: 99px; transition: width 0.3s; }
+    #progress-label { font-weight: 600; color: #0f766e; min-width: 70px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+
+    .instructions {
+      background: #f0fdfa;
+      border-left: 4px solid #0d9488;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 0.93rem;
+      color: #134e4a;
+    }
+    .instructions strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header .icon { font-size: 1.15rem; }
+    .section-header .count {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+    .section-header .chevron { font-size: 0.8rem; transition: transform 0.2s; opacity: 0.7; }
+    .section-header.collapsed .chevron { transform: rotate(-90deg); }
+
+    .sec-mental   .section-header { background: #fdf4ff; color: #6b21a8; }
+    .sec-mental   .section-header .count { background: #e9d5ff; }
+    .sec-physical .section-header { background: #fff7ed; color: #c2410c; }
+    .sec-physical .section-header .count { background: #fed7aa; }
+    .sec-learning .section-header { background: #fefce8; color: #854d0e; }
+    .sec-learning .section-header .count { background: #fef08a; }
+    .sec-social   .section-header { background: #eff6ff; color: #1d4ed8; }
+    .sec-social   .section-header .count { background: #bfdbfe; }
+    .sec-neuro    .section-header { background: #f0fdfa; color: #0f766e; }
+    .sec-neuro    .section-header .count { background: #99f6e4; }
+    .sec-family   .section-header { background: #fff1f2; color: #be123c; }
+    .sec-family   .section-header .count { background: #fecdd3; }
+    .sec-transport .section-header { background: #f0f9ff; color: #0369a1; }
+    .sec-transport .section-header .count { background: #bae6fd; }
+    .sec-systemic  .section-header { background: #f9fafb; color: #374151; }
+    .sec-systemic  .section-header .count { background: #e5e7eb; }
+    .sec-community .section-header { background: #fdf2f8; color: #9d174d; }
+    .sec-community .section-header .count { background: #fbcfe8; }
+
+    .section-body { padding: 6px 0 10px; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+    .item:hover { background: #f8fafc; }
+    .item.checked { background: #f0fdf4; }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #0d9488;
+      cursor: pointer;
+    }
+    .item label {
+      font-size: 0.93rem;
+      cursor: pointer;
+      flex: 1;
+    }
+    .item.checked label { color: #15803d; }
+
+    @media print {
+      body { background: #fff; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toolbar { display: none; }
+      .section-body { display: block !important; }
+      .item.checked { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="org">Sante mentale des jeunes Canada</div>
+  <h1>Liste de verification des obstacles a l education</h1>
+  <div class="subtitle">Difficultes d'assiduite scolaire &nbsp;&middot;&nbsp; Pour les familles et les ecoles</div>
+</header>
+
+<div class="toolbar">
+  <div class="progress-wrap">
+    <span>Elements coches :</span>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar" style="width:0%"></div></div>
+    <span id="progress-label">0 / 0</span>
+  </div>
+  <button class="btn-clear" onclick="clearAll()">Tout effacer</button>
+  <button class="btn-print" onclick="window.print()">🖨 Print</button>
+</div>
+
+<div class="container">
+
+  <div class="instructions">
+    <strong>Consignes</strong>
+    Utilisez cette liste pour identifier les obstacles possibles qui peuvent empecher un eleve de frequenter l ecole. Cochez tous les obstacles qui correspondent a la situation de l eleve. Ces informations peuvent aider a orienter l elaboration d un plan de soutien educatif individualise.
+  </div>
+
+  <!-- Mental Health & Emotional Well-Being -->
+  <div class="section sec-mental">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💜</span> Sante mentale et bien-etre emotionnel
+      <span class="count" id="cnt-mental">0 / 12</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Anxiete liee a l ecole ou a certains cours</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Humeur basse ou depression</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Stress frequent ou sentiment d etre depasse</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Dysregulation emotionnelle ou difficulte a gerer ses emotions</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Anxiete scolaire ou evitement scolaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Faible confiance en soi ou estime de soi</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiments de solitude ou d isolement</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Peur de l echec ou perfectionnisme</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a composer avec le changement ou les transitions</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Experience de deuil ou de perte</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Preoccupations liees a l automutilation ou detresse emotionnelle importante</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Autres preoccupations liees a la sante mentale</label></div>
+    </div>
+  </div>
+
+  <!-- Sante physique -->
+  <div class="section sec-physical">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧡</span> Sante physique
+      <span class="count" id="cnt-physical">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Maladie chronique ou probleme medical</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Maux de tete, maux de ventre ou plaintes physiques frequents</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Fatigue ou manque d energie</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sommeil insuffisant ou insomnie</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Horaire de sommeil irregulier</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Effets secondaires des medicaments</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Preoccupations liees a la nutrition ou a l insecurite alimentaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Handicap physique ayant une incidence sur la participation scolaire</label></div>
+    </div>
+  </div>
+
+  <!-- Learning & Academic Barriers -->
+  <div class="section sec-learning">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💛</span> Obstacles scolaires et d apprentissage
+      <span class="count" id="cnt-learning">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a comprendre les lecons ou les consignes</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte avec la lecture, l ecriture ou les mathematiques</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Trouble d apprentissage ou difficulte d apprentissage soupconnee</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficultes d attention ou de concentration</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficultes liees aux fonctions executives (organisation, gestion du temps, planification)</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiment d etre en retard sur le plan scolaire par rapport aux pairs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence de soutien scolaire ou de mesures d adaptation</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Charge de travail ou travaux accablants</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte avec l apprentissage en ligne ou la technologie</label></div>
+    </div>
+  </div>
+
+  <!-- Social & Relational Barriers -->
+  <div class="section sec-social">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">💙</span> Obstacles sociaux et relationnels
+      <span class="count" id="cnt-social">0 / 9</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Intimidation ou conflit avec des pairs ou le personnel scolaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Cyberintimidation</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiment d insecurite a l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence de sentiment d appartenance a l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Relations negatives avec les pairs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a nouer des amities</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Discrimination culturelle ou liee a l identite</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sentiment d etre incompris par le personnel enseignant ou scolaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence d un adulte de confiance a l ecole</label></div>
+    </div>
+  </div>
+
+  <!-- Neurodiversity & Disability Needs -->
+  <div class="section sec-neuro">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🧠</span> Neurodiversite et besoins lies au handicap
+      <span class="count" id="cnt-neuro">0 / 7</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Environnement de classe ne repondant pas aux besoins d apprentissage</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Differences liees au spectre de l autisme</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>TDAH ou difficultes liees a l attention</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Sensibilites sensorielles</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte avec les transitions entre activites ou cours</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Besoin d un soutien individualise a l apprentissage</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence de mesures d adaptation appropriees</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a composer avec le fonctionnement ou les attentes du systeme scolaire</label></div>
+    </div>
+  </div>
+
+  <!-- Family & Home Circumstances -->
+  <div class="section sec-family">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🏡</span> Situation familiale et domicile
+      <span class="count" id="cnt-family">0 / 10</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Stress familial ou conflit</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Maladie dans la famille ou responsabilites de proche aidant</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Instabilite du logement ou absence de domicile</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Stress financier ou pauvrete</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Insecurite alimentaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence d espace calme pour les devoirs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Acces limite a Internet ou a la technologie</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficultes de sante mentale dans la famille</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Horaires de travail parentaux ayant une incidence sur la supervision</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Demangement familial ou stress lie a l immigration</label></div>
+    </div>
+  </div>
+
+  <!-- Transportation & Access -->
+  <div class="section sec-transport">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🚌</span> Transport et acces
+      <span class="count" id="cnt-transport">0 / 6</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficulte a se rendre a l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Long trajet ou transport peu fiable</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Preoccupations de securite sur le trajet vers l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Problemes d autobus ou de transport</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Obstacles lies aux conditions meteorologiques</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficultes liees a l accessibilite physique</label></div>
+    </div>
+  </div>
+
+  <!-- Systemic & Institutional Barriers -->
+  <div class="section sec-systemic">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🏫</span> Obstacles systemiques et institutionnels
+      <span class="count" id="cnt-systemic">0 / 7</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Politiques strictes d assiduite qui ne tiennent pas compte des besoins de sante ou de handicap</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Manque de souplesse dans les horaires ou les approches pedagogiques</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Acces limite aux services de counseling ou de soutien</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Longs delais pour les evaluations ou les soutiens</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Difficultes de communication entre l ecole et la famille</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Barrieres linguistiques</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Absence de soutiens culturellement adaptes</label></div>
+    </div>
+  </div>
+
+  <!-- Community & Environmental Factors -->
+  <div class="section sec-community">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🌍</span> Facteurs communautaires et environnementaux
+      <span class="count" id="cnt-community">0 / 6</span>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="section-body">
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Manque de soutien communautaire</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Exposition a la violence ou a des conditions de quartier non securitaires</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Acces limite a des programmes ou activites pour les jeunes</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Isolement social en dehors de l ecole</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Influences negatives des pairs</label></div>
+      <div class="item" onclick="toggle(this)"><input type="checkbox"><label>Preoccupations liees a la consommation de substances</label></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const sectionMap = {
+    'cnt-mental':     '.sec-mental',
+    'cnt-physical':   '.sec-physical',
+    'cnt-learning':   '.sec-learning',
+    'cnt-social':     '.sec-social',
+    'cnt-neuro':      '.sec-neuro',
+    'cnt-family':     '.sec-family',
+    'cnt-transport':  '.sec-transport',
+    'cnt-systemic':   '.sec-systemic',
+    'cnt-community':  '.sec-community',
+  };
+
+  function toggle(itemEl) {
+    const cb = itemEl.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    itemEl.classList.toggle('checked', cb.checked);
+    updateProgress();
+  }
+
+  function toggleSection(headerEl) {
+    const body = headerEl.nextElementSibling;
+    const collapsed = body.style.display === 'none';
+    body.style.display = collapsed ? '' : 'none';
+    headerEl.classList.toggle('collapsed', !collapsed);
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.item input[type="checkbox"]');
+    const checked = document.querySelectorAll('.item input[type="checkbox"]:checked');
+    const bar = document.getElementById('progress-bar');
+    const label = document.getElementById('progress-label');
+    const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+    bar.style.width = pct + '%';
+    label.textContent = checked.length + ' / ' + all.length;
+
+    for (const [countId, selector] of Object.entries(sectionMap)) {
+      const section = document.querySelector(selector);
+      const secAll = section.querySelectorAll('.item input[type="checkbox"]');
+      const secChecked = section.querySelectorAll('.item input[type="checkbox"]:checked');
+      document.getElementById(countId).textContent = secChecked.length + ' / ' + secAll.length;
+    }
+  }
+
+  function clearAll() {
+    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+      cb.checked = false;
+      cb.closest('.item').classList.remove('checked');
+    });
+    updateProgress();
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
