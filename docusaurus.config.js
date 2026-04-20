@@ -72,6 +72,10 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        gtag: {
+          trackingID: 'G-WN8V7DESMQ',
+          anonymizeIP: true,
+        },
         sitemap: {
           ignorePatterns: ['/credits/**', '/docs/sac/credits/**'],
         },
