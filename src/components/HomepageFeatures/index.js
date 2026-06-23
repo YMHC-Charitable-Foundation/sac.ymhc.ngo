@@ -112,9 +112,9 @@ export default function HomepageFeatures() {
         </div>
         <div className="row" style={{ marginTop: '3rem', marginBottom: '2rem' }}>
           <div className="col col--12 text--center">
-            <a href="https://ymhc.ngo/conference" target="_blank" rel="noopener noreferrer">
+            <a href="https://ymhc.ngo/pages/sac-course" target="_blank" rel="noopener noreferrer">
               <img
-                src={require('@site/static/img/Conference-Event-Cover-16x9-v2.jpg').default}
+                src={require('@site/static/img/sac-course-banner.png').default}
                 alt=""
                 className={styles.fullWidthImage}
               />
